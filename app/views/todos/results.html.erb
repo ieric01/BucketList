@@ -6,6 +6,18 @@
 
 this is the results.html page. <br>
 <% @results.each do |result| %>
-  <%= result.name %><br>
+  <%= result.name %> 
+
+  <% if current_user.todos.include? Todo.find_by(:name => result.name) %>
+    <%= link_to 'Delete from list', "/delete_from_list/#{result.name}"  %>
+
+  <% else %>
+    <%= link_to 'Add to list', "/add_to_list/#{result.name}"  %>
+  <% end %>
+  
+  
+  
+  
+  <br>
 <% end %>
 

@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :bucketlist
-  has_many :bucketlist_todos, :through => :bucketlist
-
-
-
+  has_many :user_todos
+  has_many :todos, :through => :user_todos
 
 
 	def self.from_omniauth(auth)

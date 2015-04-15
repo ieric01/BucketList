@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :search_suggestions
+
   get "/auth/facebook/callback", :to => 'sessions#create'
   get "/signout", :to => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,7 +12,12 @@ Rails.application.routes.draw do
   resources :todos
 
   post '/' => 'todos#search'
+  get "/add_to_list/:todo", :to => 'todos#add_todo_to_user'
+  get "/delete_from_list/:todo", :to => 'todos#delete_todo_from_user'
 
+
+
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

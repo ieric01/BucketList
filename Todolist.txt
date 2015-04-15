@@ -1,6 +1,6 @@
 todo
 ----
-count of how many users attach to task on, displayed on results page.
+count of how many users attach to task on, displayed on results page. unless already added.
 optional popup. like in Dan's Fine twitter app.
 
 

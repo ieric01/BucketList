@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem 'figaro'
 gem 'omniauth'
