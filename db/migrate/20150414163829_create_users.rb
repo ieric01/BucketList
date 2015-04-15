@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :uid
       t.string :email
       t.string :provider
-      t.string   "first_name"
+      t.string :first_name
 
     end
   end
