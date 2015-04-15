@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get "/auth/facebook/callback", :to => 'sessions#create'
   get "/signout", :to => 'sessions#destroy'
+  get "/mylist", :to => 'todos#my_list'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
