@@ -1,7 +1,10 @@
 class SearchSuggestion < ActiveRecord::Base
+
 	def self.terms_for(prefix)
-		suggestions = where("term LIKE ?", "#{prefix}_%")
-		suggestions.order("popularity desc").limit(10).pluck(:term)
+		# binding.pry
+		suggestions = Todo.where("name LIKE ?", "%#{prefix}%")
+		# suggestions.order("popularity desc").limit(10).pluck(:name)
+		suggestions.limit(10).pluck(:name)
 	end
 
 	def self.index_todos

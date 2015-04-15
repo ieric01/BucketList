@@ -62,13 +62,14 @@ ActiveRecord::Schema.define(version: 20150415192425) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.text   "bio"
-    t.string "user_img_url"
-    t.string "uid"
-    t.string "email"
-    t.string "provider"
-    t.string "first_name"
+    t.string   "name"
+    t.text     "bio"
+    t.string   "user_img_url"
+    t.string   "uid"
+    t.string   "email"
+    t.string   "provider"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

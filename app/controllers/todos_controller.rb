@@ -1,9 +1,9 @@
 class TodosController < ApplicationController
 
-
   def search    
-    fz = FuzzyMatch.new(Todo.all, :read => :name)
-    @results = fz.find_all(params['/']['name'])
+    @results = FuzzyMatch.new(Todo.all, :read => search_params[:name])
+    # @results = fz.find_all(search_params)
+    # binding.pry
     flash[:message] = @results
     render 'results'
   end
@@ -38,6 +38,12 @@ class TodosController < ApplicationController
     
   
     render 'results'
+  end
+
+  private
+
+  def search_params
+    params.permit(:name)
   end
 
 end
