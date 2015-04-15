@@ -1,5 +1,6 @@
 class SearchSuggestionsController < ApplicationController
 	def index
-		render json: %w[eric ming doughes]
+		# binding.pry
+		render json: SearchSuggestion.terms_for(params[:term])
 	end
 end
