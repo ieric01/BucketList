@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get "/auth/facebook/callback", :to => 'sessions#create'
   get "/signout", :to => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.

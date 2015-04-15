@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150414195215) do
     t.string   "user_img_url"
     t.string   "uid"
     t.string   "email"
+    t.string   "provider"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
