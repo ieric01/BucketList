@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'font-awesome-rails'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'

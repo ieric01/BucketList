@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+#
+list_of_todos= [
+  [ "visit germany"],
+  [ "go to germany"],
+  [ "travel to germany"],
+
+]
+
+list_of_todos.each do |todo|
+  Todo.create( name: todo[0])
+end

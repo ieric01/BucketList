@@ -1,19 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>BucketList</title>
+  <title>Anime Chase</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
+<div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Anime Chase <span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Discover <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/random">Random</a></li>
+            <li><a href="/top-animes">Top 100 by Score</a></li>
+            <li><a href="/date">New Anime</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+  <% if current_user %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Watch List", "/watchlist" %></li>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%="#{current_user.first_name} " %><img src="<%= current_user.user_img_url%>" height="25"><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li> <%= link_to "Sign out", "/signout" %></li>
+
+          </ul>
+        </li>
+      </ul>
+  <% else %>
+      
+      <ul class="nav navbar-nav navbar-right">
+
+<li>        <%= link_to "/auth/facebook" do %>
+                Login with <%= fa_icon 'facebook-official' %>
+            <% end %></li>
+
+        </li>
+      </ul>
+
+
+    <% end %>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>
 
 <%= yield %>
 
 </body>
 </html>
+
