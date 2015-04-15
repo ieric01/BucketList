@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :todos
 
   post '/' => 'todos#search'
+    get "/add_to_list/:todo", :to => 'todos#add_todo_to_user'
 
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

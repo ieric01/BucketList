@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414195215) do
+ActiveRecord::Schema.define(version: 20150415192204) do
 
   create_table "bucketlist_todos", force: :cascade do |t|
     t.integer  "bucketlist_id"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20150414195215) do
     t.string   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "user_todos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "todo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
