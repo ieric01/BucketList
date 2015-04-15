@@ -4,3 +4,10 @@ Home page
 #Add the search box
 #Add the sign in button which redirects to bucketlist page
 
+
+<%= link_to "/auth/facebook" do %>
+                Login with  %>
+            <% end %>
+
+
+            <%= current_user.inspect if current_user %>
