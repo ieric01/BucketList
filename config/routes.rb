@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :todos
 
   post '/' => 'todos#search'
-    get "/add_to_list/:todo", :to => 'todos#add_todo_to_user'
+  get "/add_to_list/:todo", :to => 'todos#add_todo_to_user'
+  get "/delete_from_list/:todo", :to => 'todos#delete_todo_from_user'
+
+
 
  
   # Example of regular route:

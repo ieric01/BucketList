@@ -25,4 +25,22 @@ class TodosController < ApplicationController
   
     render 'results'
   end
+
+  def delete_todo_from_user
+   @results = flash[:message]
+   flash[:message] = @results 
+
+   arr = [] 
+   @results.each do |result|
+     arr << Todo.find_by(:name => result['name'])
+   end
+   @results = arr
+    
+    UserTodo.find_by(:user_id => current_user.id,
+                     :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
+    
+  
+    render 'results'
+  end
+
 end
