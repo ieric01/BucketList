@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root 'welcome#home'
   resources :todos
 
+  post '/' => 'todos#search'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

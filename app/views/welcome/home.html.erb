@@ -9,7 +9,7 @@ Home page
 <div class="container">
   <div class="row">
     <div id="content" class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-      <%= form_for @todo do |f| %>
+      <%= form_for '/' do |f| %>
         <div class="field">
           <%= f.text_field :name, :placeholder => 'What do you want to do?', :size => 60%>
         </div>
