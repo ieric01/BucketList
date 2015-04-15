@@ -1,3 +1,15 @@
+todo
+----
+count of how many users attach to task on, displayed on results page.
+optional popup. like in Dan's Fine twitter app.
+
+
+
+
+
+
+
+
 1. Ming - Omni-Auth FB Authentication
 2. Hessvacio - API keys 
 3. Eric - 

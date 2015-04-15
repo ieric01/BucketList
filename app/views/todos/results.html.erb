@@ -4,4 +4,8 @@
 <br><br>
 
 
-this is the results.html page.
+this is the results.html page. <br>
+<% @results.each do |result| %>
+  <%= result.name %><br>
+<% end %>
+
