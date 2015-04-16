@@ -7,6 +7,7 @@ my list
 
 todo
 ----
+done button - when completed with 
 count of how many users have task in their list, displayed on results page. unless already added.
 optional popup. like in Dan's Fine twitter app.
 see other users list.

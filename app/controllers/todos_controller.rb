@@ -1,5 +1,14 @@
 class TodosController < ApplicationController
 
+  before_action :authorized_user
+
+    def authorized_user
+      if current_user.nil?
+        redirect_to "/auth/facebook", notice: "log in first" 
+      end
+    end
+
+
   def search    
     fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
     @results = fz.find_all(search_params)
