@@ -4,6 +4,6 @@
 
 <% @my_todos.each do |todo| %>
   <%= todo.name %>     <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %>
-
+  <%= link_to 'Finished', "/complete_todo/#{todo.id}" %>
 <br>
 <% end %>

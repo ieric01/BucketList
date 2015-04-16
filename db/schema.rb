@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150415192425) do
     t.text     "description"
     t.string   "link"
     t.string   "image"
+    t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -44,8 +45,9 @@ ActiveRecord::Schema.define(version: 20150415192425) do
   create_table "user_todos", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "todo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "finished",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|

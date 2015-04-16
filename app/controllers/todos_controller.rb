@@ -8,6 +8,7 @@ class TodosController < ApplicationController
   end
 
   def add_todo_to_user
+    # binding.pry
    @results = flash[:message]
    flash[:message] = @results 
 
@@ -57,6 +58,18 @@ class TodosController < ApplicationController
                      :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
       redirect_to '/mylist'  
     end
+  end
+
+  def complete_todo
+    completed_todo = current_user.user_todos.where(:todo_id => params["id"])
+    # complete_todo = current_user.todos.find(params["id"])
+    completed_todo.find_by_todo_id(params['id']).update(:finished => true)
+
+    #RENDER THE TEMPLATE HERE
+    # redirect_to "/mylist", notice: 'Widget was successfully created.' 
+    redirect_to mylist_path, flash: {notice: "Successfully checked in"}
+
+
   end
 
   def my_list

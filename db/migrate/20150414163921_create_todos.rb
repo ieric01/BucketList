@@ -5,7 +5,7 @@ class CreateTodos < ActiveRecord::Migration
       t.text :description
       t.string :link
       t.string :image
-    
+    	t.string :status
 
       t.timestamps null: false
     end
