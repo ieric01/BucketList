@@ -73,6 +73,12 @@ class TodosController < ApplicationController
     @my_todos = current_user.todos
   end
 
+  def users_with_this_todo
+    @users_with_todo = Todo.find_by(:name => params['todo']).users
+    render 'users_with_this_todo'
+
+  end
+
 
   private
 

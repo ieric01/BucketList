@@ -4,4 +4,9 @@ class UsersController < ApplicationController
     
 
   end
+
+
+  def see_user_list
+
+  end
 end

@@ -1,0 +1,9 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<% @users_with_todo.each do |user| %>
+  <%= link_to  user.name, "/see_user_list/#{user.name}"  %><br>
+<% end %>
