@@ -75,6 +75,7 @@ class TodosController < ApplicationController
 
   def users_with_this_todo
     @todo_id = Todo.find_by(:name => params['todo']).id
+    @comments = Comment.where(:todo_id => @todo_id )
     @users_with_todo = Todo.find_by(:name => params['todo']).users
     @comment = Comment.new
     render 'users_with_this_todo'
