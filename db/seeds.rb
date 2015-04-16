@@ -17,3 +17,8 @@ list_of_todos= [
 list_of_todos.each do |todo|
   Todo.create( name: todo[0])
 end
+
+ User.create(name: 'Emanuel')
+
+
+

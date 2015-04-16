@@ -1,5 +1,5 @@
 <br><br><br>
-
+<%=  flash[:notice] %><br><br>
 <%= 'No items have been added to your list' if @my_todos.empty?  %>
 
 <% @my_todos.each do |todo| %>
