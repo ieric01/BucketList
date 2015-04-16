@@ -1,0 +1,10 @@
+<br><br><br>
+
+<%= 'List is empty.' if @user_todos.empty?  %>
+
+<% @user_todos.each do |todo| %>
+  <%= link_to  todo.name, "/users_with_this_todo/#{todo.name}"  %>
+
+<br>
+<% end %>
+
