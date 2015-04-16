@@ -1,7 +1,19 @@
+completed
+---
+added omniauth
+nav-bar
+search functionality
+my list
+
 todo
 ----
-count of how many users attach to task on, displayed on results page. unless already added.
+count of how many users have task in their list, displayed on results page. unless already added.
 optional popup. like in Dan's Fine twitter app.
+see other users list.
+see users following todo.
+see todo leadership board. http://www.sitepoint.com/leaderboards-rails/
+set up PM system
+ability to create new todo.
 
 
 

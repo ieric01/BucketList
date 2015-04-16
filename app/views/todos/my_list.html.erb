@@ -1,0 +1,9 @@
+<br><br><br>
+
+<%= 'No items have been added to your list' if @my_todos.empty?  %>
+
+<% @my_todos.each do |todo| %>
+  <%= todo.name %>     <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %>
+
+<br>
+<% end %>
