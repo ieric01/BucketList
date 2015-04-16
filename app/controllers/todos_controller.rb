@@ -1,5 +1,14 @@
 class TodosController < ApplicationController
 
+  before_action :authorized_user
+
+    def authorized_user
+      if current_user.nil?
+        redirect_to "/auth/facebook", notice: "log in first" 
+      end
+    end
+
+
   def search    
     fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
     @results = fz.find_all(search_params)
@@ -75,6 +84,15 @@ class TodosController < ApplicationController
   def my_list
     flash[:last_page] = 'my list'
     @my_todos = current_user.todos
+  end
+
+  def users_with_this_todo
+    @todo_id = Todo.find_by(:name => params['todo']).id
+    @comments = Comment.where(:todo_id => @todo_id )
+    @users_with_todo = Todo.find_by(:name => params['todo']).users
+    @comment = Comment.new
+    render 'users_with_this_todo'
+
   end
 
 
