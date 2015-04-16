@@ -70,15 +70,14 @@ class TodosController < ApplicationController
   end
 
   def complete_todo
-    completed_todo = current_user.user_todos.where(:todo_id => params["id"])
-    # complete_todo = current_user.todos.find(params["id"])
-    completed_todo.find_by_todo_id(params['id']).update(:finished => true)
+    @completed_todo = current_user.user_todos.where(:todo_id => params["id"])
+    @completed_todo.find_by_todo_id(params['id']).update(:finished => true)
+    redirect_to '/completed_list'
+  end
 
-    #RENDER THE TEMPLATE HERE
-    # redirect_to "/mylist", notice: 'Widget was successfully created.' 
-    redirect_to mylist_path, flash: {notice: "Successfully checked in"}
-
-
+  def complete_show
+    @completed_todo_array = current_user.user_todos.map {|todo| todo if todo.finished}
+    render 'completed_list'
   end
 
   def my_list

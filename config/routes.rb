@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get "/add_to_list/:todo", :to => 'todos#add_todo_to_user'
   get "/delete_from_list/:todo", :to => 'todos#delete_todo_from_user'
   get "/complete_todo/:id", :to => 'todos#complete_todo'
+  get "/completed_list", :to => 'todos#complete_show'
 
 
 
