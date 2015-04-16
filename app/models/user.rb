@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :user_todos
   has_many :todos, :through => :user_todos
+  has_many :comments
 
 
 	def self.from_omniauth(auth)

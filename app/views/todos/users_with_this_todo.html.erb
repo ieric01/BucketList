@@ -3,6 +3,14 @@
 <br>
 <br>
 <br>
+<%= form_for @comment do |f| %>
+  <%= f.label :content %>:
+  <%= f.text_field :content %>
+  <%= f.hidden_field :todo_id, :value => @todo_id %>
+  <br />
+
+  <%= f.submit %>
+<% end %>
 
 <% @users_with_todo.each do |user| %>
   <%= link_to  user.name, "/see_user_list/#{user.name}"  %><br>

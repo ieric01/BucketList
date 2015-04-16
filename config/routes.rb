@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :search_suggestions
+  resources :comments
 
   get "/auth/facebook/callback", :to => 'sessions#create'
   get "/signout", :to => 'sessions#destroy'
