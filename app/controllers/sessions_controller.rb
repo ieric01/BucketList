@@ -1,14 +1,10 @@
 class SessionsController < ApplicationController
 
-  def test
-
-  end
-
   def create 
-     @user = User.from_omniauth(env["omniauth.auth"])
-     session[:user_id] = @user.id
-     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-     redirect_to '/', :notice => "You're Signed in"
+   @user = User.from_omniauth(env["omniauth.auth"])
+   session[:user_id] = @user.id
+   @current_user ||= User.find(session[:user_id]) if session[:user_id]
+   redirect_to '/', :notice => "You're Signed in"
   end
 
   def destroy

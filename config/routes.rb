@@ -14,7 +14,14 @@ Rails.application.routes.draw do
   root 'welcome#home'
   resources :todos
 
-  post '/' => 'todos#search'
+  # post '/' => 'todos#search'
+  
+  #Testing 
+
+  post '/search_suggestions' => 'search_suggestions#index'
+
+  get '/search' => 'todos#search'
+
   get "/add_to_list/:todo", :to => 'todos#add_todo_to_user'
   get "/delete_from_list/:todo", :to => 'todos#delete_todo_from_user'
 

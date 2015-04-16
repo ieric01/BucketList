@@ -1,10 +1,9 @@
 class TodosController < ApplicationController
 
-
-  def search
-    
-    fz = FuzzyMatch.new(Todo.all, :read => :name)
-    @results = fz.find_all(params['/']['name'])
+  def search    
+    @results = FuzzyMatch.new(Todo.all, :read => search_params[:name])
+    # @results = fz.find_all(search_params)
+    # binding.pry
     flash[:message] = @results
     render 'results'
   end
@@ -19,6 +18,7 @@ class TodosController < ApplicationController
      arr << Todo.find_by(:name => result['name'])
    end
    @results = arr
+
    if current_user.todos.include? Todo.find_by(:name => params['todo'])
    else
     UserTodo.create(:user_id => current_user.id,
@@ -26,6 +26,7 @@ class TodosController < ApplicationController
    end
     
   
+
     render 'results'
   end
 
@@ -65,4 +66,9 @@ class TodosController < ApplicationController
   end
 
 
+  private
+
+  def search_params
+    params.permit(:name)
+  en
 end
