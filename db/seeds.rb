@@ -19,6 +19,8 @@ list_of_todos.each do |todo|
 end
 
  User.create(name: 'Emanuel')
+ User.find(1).user_todos.create(:todo_id => 2)
+ User.find(1).comments.create(:content => 'this is a comment.', :todo_id => 3)
 
 
 

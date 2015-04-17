@@ -16,6 +16,7 @@ see users following todo.
 see todo leadership board. http://www.sitepoint.com/leaderboards-rails/
 set up PM system
 ability to create new todo.
+flash notices. https://github.com/RobinBrouwer/gritter
 
 
 
