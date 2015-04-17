@@ -17,7 +17,9 @@ namespace :seed do
 			title = p.css('.info>h2>a')[i].text
 			url = p.css('#grid-container div.grid-item div.img-thumbnail')[i]['style'].match(/\'(.+)\'/)
 			img_url = url[1]
-			Todo.create(name: title, image: img_url)
+			open_url = img_url.match(/(.+)\.jpg/) 
+			# binding.pry
+			Todo.create(name: title, image: open_url[0])
 			i += 1
 		end
 	end
