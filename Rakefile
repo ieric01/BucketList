@@ -16,7 +16,6 @@ namespace :seed do
 		p = Nokogiri::HTML(open("http://bucketlist.org/featured/"))
 		i = 0
 		while p.css('.info>h2>a')[i].text
-			binding.pry
 			# Todo.create(name: )
 			i += 1
 		end
