@@ -16,8 +16,10 @@ class TodosController < ApplicationController
 
   def search    
     fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
+    # binding.pry
     @results = fz.find_all(search_params)
-    flash[:message] = @results
+    # @results = search_params[:name]
+    # flash[:message] = @results
     #Here I created an instance variable todo for the form helper
     @todo = Todo.new
     render 'results'

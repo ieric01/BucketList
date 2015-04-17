@@ -11,6 +11,8 @@ this is the results.html page. <br>
 <%= form_for @todo do |f| %>
   <%= f.label "name" %>
   <%= f.text_field :name %><br>
+  <%= f.label "Description" %><br>
+  <%= f.text_area :description %><br>
   <%= f.submit "Create Todo" %>
 <% end %><br>
 
@@ -19,7 +21,8 @@ this is the results.html page. <br>
 <% @results.each do |result| %>
   <%= result.name %> [ <%= link_to 'Users', "/users_with_this_todo/#{result.name}"  %>
   <%=  Todo.find_by(:name => result.name).users.count %>] <br>
-  <%= link_to "Events [#{result.events.count}]", "/events/#{result.name}"  %> | 
+  <%= link_to 'Events', "/events/#{result.name}"  %> | 
+
 
   <% if current_user.todos.include? Todo.find_by(:name => result.name) %>
     <%= link_to 'Delete from list', "/delete_from_list/#{result.name}"  %>
