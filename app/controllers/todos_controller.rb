@@ -2,17 +2,24 @@ class TodosController < ApplicationController
 
   before_action :authorized_user
 
-    def authorized_user
-      if current_user.nil?
-        redirect_to "/auth/facebook", notice: "log in first" 
-      end
+  # def create
+  #   binding.pry
+
+  # end
+
+  def authorized_user
+    if current_user.nil?
+      redirect_to "/auth/facebook", notice: "log in first" 
     end
+  end
 
 
   def search    
     fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
     @results = fz.find_all(search_params)
     flash[:message] = @results
+    #Here I created an instance variable todo for the form helper
+    @todo = Todo.new
     render 'results'
   end
 
@@ -59,14 +66,11 @@ class TodosController < ApplicationController
     redirect_to :back
   end
 
-
-
   def my_list
     flash[:last_page] = 'my list'
     @my_todos = current_user.todos
 
     @completed_todo_array = current_user.user_todos.select {|todo| todo if todo.finished}
-   
   end
 
   def users_with_this_todo
@@ -75,9 +79,7 @@ class TodosController < ApplicationController
     @users_with_todo = Todo.find_by(:name => params['todo']).users
     @comment = Comment.new
     render 'users_with_this_todo'
-
   end
-
 
   private
 

@@ -5,6 +5,17 @@
 
 
 this is the results.html page. <br>
+
+<h4> Create New Todo </h4>
+--------------------------
+<%= form_for @todo do |f| %>
+  <%= f.label "name" %>
+  <%= f.text_field :name %><br>
+  <%= f.submit "Create Todo" %>
+<% end %><br>
+
+
+
 <% @results.each do |result| %>
   <%= result.name %> [ <%= link_to 'Users', "/users_with_this_todo/#{result.name}"  %>
   <%=  Todo.find_by(:name => result.name).users.count %>] <br>
