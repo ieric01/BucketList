@@ -77,7 +77,7 @@ class TodosController < ApplicationController
   end
 
   def complete_show
-    @completed_todo_array = current_user.user_todos.map {|todo| todo if todo.finished}
+    @completed_todo_array = current_user.user_todos.select {|todo| todo if todo.finished}
     render 'completed_list'
   end
 

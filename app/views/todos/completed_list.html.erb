@@ -4,7 +4,6 @@
 <% @completed_todo_array.each do |todo| %>
 	<%= Todo.find(todo.todo_id).name %> 
 	<%= Todo.find(todo.todo_id).image %> 
-
 <br>
 
 <% end %>
