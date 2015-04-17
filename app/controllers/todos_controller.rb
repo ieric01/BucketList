@@ -84,7 +84,7 @@ class TodosController < ApplicationController
     flash[:last_page] = 'my list'
     @my_todos = current_user.todos
 
-        @completed_todo_array = current_user.user_todos.select {|todo| todo if todo.finished}
+    @completed_todo_array = current_user.user_todos.select {|todo| todo if todo.finished}
    
   end
 
