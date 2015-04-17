@@ -10,17 +10,6 @@
 Incomplete:
 <br><br>
 
-#if button is clicked --may have to add javascript , show form for todo
-<%= button_to "+" %>
-  #show a form
-
-
-
-
-
-
-
-
 <% @my_todos.each do |todo| %>
   <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
   <%= todo.name %>     <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %>
