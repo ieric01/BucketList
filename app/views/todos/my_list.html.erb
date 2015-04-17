@@ -24,7 +24,6 @@ Incomplete:
 You've completed:
 <br><br>
 
-
 <% @completed_todo_array.each do |user_todo| %>
   <%= Todo.find(user_todo.todo_id).name %> <%= link_to 'Delete from list', "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %>
 	<%= Todo.find(user_todo.todo_id).image %> 
