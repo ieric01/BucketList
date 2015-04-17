@@ -10,8 +10,6 @@ require 'rake'
 
 namespace :seed do 
 
-
-	
 	task :populate_todo => :environment do
 		p = Nokogiri::HTML(open("http://bucketlist.org/featured/"))
 		i = 0
