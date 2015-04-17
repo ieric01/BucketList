@@ -12,24 +12,30 @@ events page
   <%= f.text_field :location %><br />
 
     <%= f.label :time %>:
-    <%= f.date_field :date %><br />
+    <%= f.date_field :date %>
     <%= f.time_field :time %><br />
 
 
         <%= f.label :notes %>:
-  <%= f.text_area :notes %><br />
+        <%= f.text_area :notes, :cols => "90", :rows => "5" %>
+        
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :todo_id, :value => Todo.find_by(:name => params['todo']).id %>
+        <br>
 
 
   <%= f.submit %>
 <% end %>
+<br>
 
+<%= 'No events have been created' if @events.empty? %>
 <% @events.each do |event| %>
-  <%= event.name %><br>
-  <%= event.location %><br>
-  <%= event.date.to_formatted_s(:short) %><br>
-  <%= event.time.to_formatted_s(:time) %><br>
-  <%= event.notes %><br>
-   <%=time_ago_in_words(Time.at(event.created_at))%> ago 
+  <%= event.name.titleize %><br>
+ Location: <%= event.location %><br>
+ Date: <%= event.date.to_formatted_s(:short) %><br>
+ Time: <%= event.time.to_formatted_s(:time) %><br>
+ Notes: <%= event.notes %><br>
+ Created:  <%=time_ago_in_words(Time.at(event.created_at))%> ago 
 
 <% end %>
 

@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150417141309) do
   create_table "event_users", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "user_id"
+    t.integer  "todo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +50,8 @@ ActiveRecord::Schema.define(version: 20150417141309) do
     t.date     "date"
     t.time     "time"
     t.text     "notes"
+    t.integer  "user_id"
+    t.integer  "todo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
