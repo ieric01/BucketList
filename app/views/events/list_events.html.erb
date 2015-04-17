@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+events page
+
+
+<%= form_for @event do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label :location %>:
+  <%= f.text_field :location %><br />
+
+    <%= f.label :time %>:
+    <%= f.date_field :date %><br />
+    <%= f.time_field :time %><br />
+
+
+        <%= f.label :notes %>:
+  <%= f.text_area :notes %><br />
+
+
+  <%= f.submit %>
+<% end %>
+
+<% @events.each do |event| %>
+  <%= event.name %><br>
+  <%= event.location %><br>
+  <%= event.date %><br>
+  <%= event.time %><br>
+  <%= event.notes %><br>
+   <%=time_ago_in_words(Time.at(event.created_at))%> ago 
+
+<% end %>
+
+
+
+
+<br>
+<%= link_to 'Back', :back %>

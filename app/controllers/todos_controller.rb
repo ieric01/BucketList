@@ -17,26 +17,12 @@ class TodosController < ApplicationController
   end
 
   def add_todo_to_user
-    # binding.pry
-   @results = flash[:message]
-   flash[:message] = @results 
-
-   arr = []
-   return redirect_to '/' if @results.nil?
-   @results.each do |result|
-     arr << Todo.find_by(:name => result['name'])
-   end
-   @results = arr
-
    if current_user.todos.include? Todo.find_by(:name => params['todo'])
    else
     UserTodo.create(:user_id => current_user.id,
                     :todo_id =>  Todo.find_by(:name => params['todo']).id)
    end
-    
-  
-
-    render 'results'
+    redirect_to :back
   end
 
   def delete_todo_from_user
@@ -48,24 +34,22 @@ class TodosController < ApplicationController
 
      @results = flash[:message]
      flash[:message] = @results 
-
      arr = [] 
 
      @results.each do |result|
        arr << Todo.find_by(:name => result['name'])
      end
-     @results = arr
-      
-      UserTodo.find_by(:user_id => current_user.id,
-                       :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
 
+     @results = arr
+     UserTodo.find_by(:user_id => current_user.id,
+                      :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
      render 'results'
    end
 
     if flash[:last_page] == 'my list'
     UserTodo.find_by(:user_id => current_user.id,
                      :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
-      redirect_to '/mylist'  
+      redirect_to :back  
     end
   end
 
@@ -75,10 +59,7 @@ class TodosController < ApplicationController
     redirect_to :back
   end
 
-  def complete_show
-    @completed_todo_array = current_user.user_todos.select {|todo| todo if todo.finished}
-    render 'completed_list'
-  end
+
 
   def my_list
     flash[:last_page] = 'my list'
