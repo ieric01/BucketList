@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   has_many :user_todos
   has_many :todos, :through => :user_todos
   has_many :comments
+  has_many :event_users
+  has_many :events, :through => :event_users
+  
 
 
 	def self.from_omniauth(auth)
