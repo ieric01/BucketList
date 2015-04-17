@@ -4,7 +4,7 @@ class SearchSuggestion < ActiveRecord::Base
 		# binding.pry
 		suggestions = Todo.where("name LIKE ?", "#{prefix}%")
 		# suggestions.order("popularity desc").limit(10).pluck(:name)
-		suggestions.limit(10).pluck(:name)
+		suggestions.limit(5).pluck(:name)
 	end
 
 	def self.index_todos

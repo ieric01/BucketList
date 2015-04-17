@@ -22,6 +22,7 @@ class TodosController < ApplicationController
     # flash[:message] = @results
     #Here I created an instance variable todo for the form helper
     @todo = Todo.new
+    # flash[:message] = @results
     render 'results'
   end
 
