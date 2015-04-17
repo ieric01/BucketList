@@ -26,8 +26,8 @@ events page
 <% @events.each do |event| %>
   <%= event.name %><br>
   <%= event.location %><br>
-  <%= event.date %><br>
-  <%= event.time %><br>
+  <%= event.date.to_formatted_s(:short) %><br>
+  <%= event.time.to_formatted_s(:time) %><br>
   <%= event.notes %><br>
    <%=time_ago_in_words(Time.at(event.created_at))%> ago 
 
