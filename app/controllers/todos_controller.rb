@@ -72,7 +72,7 @@ class TodosController < ApplicationController
   def complete_todo
     @completed_todo = current_user.user_todos.where(:todo_id => params["id"])
     @completed_todo.find_by_todo_id(params['id']).update(:finished => true)
-    redirect_to '/completed_list'
+    redirect_to :back
   end
 
   def complete_show
@@ -83,6 +83,9 @@ class TodosController < ApplicationController
   def my_list
     flash[:last_page] = 'my list'
     @my_todos = current_user.todos
+
+        @completed_todo_array = current_user.user_todos.select {|todo| todo if todo.finished}
+   
   end
 
   def users_with_this_todo

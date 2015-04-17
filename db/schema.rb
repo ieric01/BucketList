@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20150416152906) do
     t.text     "description"
     t.string   "link"
     t.string   "image"
-    t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

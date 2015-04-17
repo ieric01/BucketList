@@ -1,9 +1,34 @@
 <br><br><br>
+
+<p id='notice'>
+   <%=flash[:notice]%>
+   </p>
+
 <%=  flash[:notice] %><br><br>
 <%= 'No items have been added to your list' if @my_todos.empty?  %>
 
+Incomplete:
+
 <% @my_todos.each do |todo| %>
+  <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
   <%= todo.name %>     <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %>
   <%= link_to 'Finished', "/complete_todo/#{todo.id}" %>
+<% end %>
 <br>
 <% end %>
+
+
+<hr>
+
+You've completed:
+<br><br>
+
+
+<% @completed_todo_array.each do |todo| %>
+	<%= Todo.find(todo.todo_id).name %> 
+	<%= Todo.find(todo.todo_id).image %> 
+<br>
+
+<% end %>
+
+
