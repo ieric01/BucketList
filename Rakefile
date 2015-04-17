@@ -20,6 +20,7 @@ namespace :seed do
 			url = p.css('#grid-container div.grid-item div.img-thumbnail')[i]['style'].match(/\'(.+)\'/)
 			img_url = url[1]
 			# binding.pry
+			#test
 			Todo.create(name: title, image: img_url)
 			i += 1
 		end
