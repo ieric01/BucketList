@@ -6,6 +6,8 @@ class CreateEvents < ActiveRecord::Migration
       t.date :date
       t.time :time
       t.text :notes
+      t.integer :user_id
+      t.integer :todo_id
 
       t.timestamps null: false
     end

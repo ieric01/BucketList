@@ -7,5 +7,4 @@ class CommentsController < ApplicationController
    redirect_to (:back)
   end
 
-
 end

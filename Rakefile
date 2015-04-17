@@ -13,8 +13,8 @@ namespace :seed do
 	task :populate_todo => :environment do
 		p = Nokogiri::HTML(open("http://bucketlist.org/featured/"))
 		i = 0
-		unless p.css('.info>h2>a')[i].text != nil
-			binding.pry
+		while p.css('.info>h2>a')[i] != nil
+			# binding.pry
 			title = p.css('.info>h2>a')[i].text
 			url = p.css('#grid-container div.grid-item div.img-thumbnail')[i]['style'].match(/\'(.+)\'/)
 			img_url = url[1]
