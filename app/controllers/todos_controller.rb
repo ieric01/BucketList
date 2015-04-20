@@ -2,10 +2,6 @@ class TodosController < ApplicationController
 
   before_action :authorized_user
 
-  def create
-    redirect_to "/search"
-  end
-
   def authorized_user
     if current_user.nil?
       redirect_to "/auth/facebook", notice: "log in first" 
@@ -25,6 +21,20 @@ class TodosController < ApplicationController
     @todo = Todo.new
     # flash[:message] = @results
     render 'results'
+  end
+
+  
+  def create
+    #make sure that all fields in the create todoform are not empty and and error should arise"
+    @results = Todo.create(:name => params[:todo][:name], 
+                :description => params[:todo][:description], 
+                :new_image => params[:todo][:new_image]
+                )
+    UserTodo.create(:user_id => current_user.id, :todo_id => new_todo.id)
+    # binding.pry
+    #Create the Todo object
+    #Associate the Todo object with
+    redirect_to "/search"
   end
 
   def add_todo_to_user
