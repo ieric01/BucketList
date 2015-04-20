@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rest-client'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem 'figaro'

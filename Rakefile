@@ -23,4 +23,9 @@ namespace :seed do
 			i += 1
 		end
 	end
+
+	task :populate_travel_deals => :environment do
+		CouponParser.new.populate_travels
+
+	end
 end

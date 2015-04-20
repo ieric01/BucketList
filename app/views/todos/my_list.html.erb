@@ -12,6 +12,7 @@ Incomplete:
 
 <% @my_todos.each do |todo| %>
   <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
+  <img src="<%= todo.image %>" height="75">
   <%= todo.name %>     <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %>
   <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
 <% end %>
@@ -25,8 +26,9 @@ You've completed:
 <br><br>
 
 <% @completed_todo_array.each do |user_todo| %>
+	<img src="<%= Todo.find(user_todo.todo_id).image %>" height="75">
   <%= Todo.find(user_todo.todo_id).name %> <%= link_to 'Delete from list', "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %>
-	<%= Todo.find(user_todo.todo_id).image %> 
+	
 <br>
 
 <% end %>
