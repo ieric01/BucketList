@@ -1,10 +1,10 @@
 class SearchSuggestionsController < ApplicationController
   def index
     # render json: 
-    results = SearchSuggestion.terms_for(search_params[:term])
+    results = SearchSuggestion.suggestions_scroll(search_params[:term])
     # binding.pry
-    render json: results
-	end
+    render :json => results
+end
 
   private
 

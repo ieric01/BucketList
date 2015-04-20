@@ -3,8 +3,7 @@ class TodosController < ApplicationController
   before_action :authorized_user
 
   def create
-    # binding.pry
-    puts "hello"
+    redirect_to "/search"
   end
 
   def authorized_user
@@ -15,9 +14,10 @@ class TodosController < ApplicationController
 
 
   def search    
-    fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
+    @results = SearchSuggestion.results_objects(search_params[:name])
+    # fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
     # binding.pry
-    @results = fz.find_all(search_params)
+    # @results = fz.find_all(search_params)
     # binding.pry
     # @results = search_params[:name]
     # flash[:message] = @results
