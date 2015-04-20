@@ -11,6 +11,7 @@ class TodosController < ApplicationController
 
   def search    
     @results = SearchSuggestion.results_objects(search_params[:name])
+    # binding.pry
     # fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
     # binding.pry
     # @results = fz.find_all(search_params)
@@ -26,14 +27,15 @@ class TodosController < ApplicationController
   
   def create
     #make sure that all fields in the create todoform are not empty and and error should arise"
-    @results = Todo.create(:name => params[:todo][:name], 
+    new_todo = Todo.create(:name => params[:todo][:name], 
                 :description => params[:todo][:description], 
                 :new_image => params[:todo][:new_image]
                 )
     UserTodo.create(:user_id => current_user.id, :todo_id => new_todo.id)
-    # binding.pry
+    binding.pry
     #Create the Todo object
     #Associate the Todo object with
+    
     redirect_to "/search"
   end
 

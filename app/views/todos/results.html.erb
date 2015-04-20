@@ -7,7 +7,7 @@
 this is the results.html page. <br>
    <h4> Create New Todo </h4>
  --------------------------
- <%= form_for @todo, :html => { :multipart => true } do |form| %>
+ <%= form_for @todo, :url => todos_path, :html => { :multipart => true } do |form| %>
  <%= form.label "name" %>
  <%= form.text_field :name %><br>
  <%= form.label "Description" %><br>
