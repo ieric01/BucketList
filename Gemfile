@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'fuzzy_match', '~> 2.1.0'
 gem "paperclip", "~> 4.2"
+# gem "imagemagick"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
