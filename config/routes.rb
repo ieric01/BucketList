@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resources :search_suggestions
   resources :comments
+  post "/new_message", :to => 'mailbox#send_message'
+
+  get "/mailbox/inbox", :to => 'mailbox#inbox'
+  get "/new_message", :to => 'mailbox#new_message'
   get "/events/:todo", :to => 'events#list_events'
   resources :events
 

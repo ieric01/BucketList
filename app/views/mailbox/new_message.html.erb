@@ -1,0 +1,18 @@
+<br><br><br>
+
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+
+<%= form_for '/new_message' do |f| %>
+  <%= f.label "To User" %>:
+  <%= f.collection_select :user_id, @users, :id, :name, include_blank: true %>
+  
+  <%= f.label :subject %>:
+  <%= f.text_field :subject %><br />
+
+  <%= f.label :body %>:
+  <%= f.text_area :body %><br />
+
+  <%= f.submit 'Send'%>
+<% end %>

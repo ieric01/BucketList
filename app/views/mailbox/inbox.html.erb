@@ -1,0 +1,20 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Inbox:<br>
+<% current_user.mailbox.inbox.each do |conversation| %>
+
+  <%= conversation.subject %><br>
+
+<% end %>
+
+<hr/>
+Sentbox:<br>
+<% current_user.mailbox.sentbox.each do |conversation| %>
+
+  <%= conversation.subject %><br>
+
+<% end %>
