@@ -95,10 +95,15 @@ class TodosController < ApplicationController
     render 'users_with_this_todo'
   end
 
+  def show
+    @todo = Todo.find_by(:id => search_params[:id])
+    render 'show'
+  end
+
+
   private
 
   def search_params
-    params.permit(:name)
-    #permit new_image if neccessary
+    params.permit(:name, :id)
   end
 end
