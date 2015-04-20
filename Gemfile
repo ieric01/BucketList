@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+
+gem 'mailboxer'
 gem 'rest-client'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
