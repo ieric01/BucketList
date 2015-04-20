@@ -19,7 +19,6 @@ class EventsController < ApplicationController
     event.event_users.create(:user_id => current_user.id)
 
     
-    binding.pry
 
     redirect_to :back
   end
@@ -36,6 +35,11 @@ class EventsController < ApplicationController
   def attendees_list
     @attendees = Event.find(params['event_id']).users.uniq
     
+  end
+
+  def leave_event
+    Event.find(params['event_id']).users.delete(current_user)
+    redirect_to :back
   end
 
 

@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :event_users
   has_many :events, :through => :event_users
-  
-
 
 	def self.from_omniauth(auth)
 		user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])|| create_from_omniauth(auth)
@@ -22,7 +20,5 @@ class User < ActiveRecord::Base
 		user.user_img_url = auth["info"]["image"]
 		end
 	end
-
-
 
 end

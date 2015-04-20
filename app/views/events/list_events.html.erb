@@ -36,10 +36,18 @@ events page
  Time: <%= event.time.to_formatted_s(:time) %><br>
  Notes: <%= event.notes %><br>
  Created:  <%=time_ago_in_words(Time.at(event.created_at))%> ago 
- <br><%= link_to 'RSVP', "/rsvp/#{event.id}" %> | 
-<%= link_to 'Attendees', "/attendees/#{event.id}" %>
-<% end %>
+ <br>
 
+ <% if  event.users.include? current_user %>
+    <%= link_to 'Leave Event', "/leave_event/#{event.id}" %> 
+<% else %>
+    <%= link_to 'RSVP', "/rsvp/#{event.id}" %> 
+  <%  end %>
+ 
+ 
+ | 
+ <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>]
+<% end %>
 
 
 

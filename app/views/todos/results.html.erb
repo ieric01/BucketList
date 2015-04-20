@@ -5,11 +5,25 @@
 
 
 this is the results.html page. <br>
+   <h4> Create New Todo </h4>
+ --------------------------
+ <%= form_for @todo, :html => { :multipart => true } do |form| %>
+ <%= form.label "name" %>
+ <%= form.text_field :name %><br>
+ <%= form.label "Description" %><br>
+ <%= form.text_area :description %><br>
+ <%= form.file_field :new_image %>  
+ <%= form.submit "Create Todo" %>
+ <% end %><br>
+
+
 <% @results.each do |result| %>
+
 	<a href="/show/<%= result.id %>"><img src="<%= result.image %>" height="250" ></a>
   <%= result.name %> [ <%= link_to 'Users', "/users_with_this_todo/#{result.name}"  %>
   <%=  Todo.find_by(:name => result.name).users.count %>] <br>
-  <%= link_to "Events [#{result.events.count}]", "/events/#{result.name}"  %> | 
+  <%= link_to 'Events', "/events/#{result.name}"  %> | 
+
 
   <% if current_user.todos.include? Todo.find_by(:name => result.name) %>
     <%= link_to 'Delete from list', "/delete_from_list/#{result.name}"  %>
