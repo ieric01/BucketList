@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/mylist", :to => 'todos#my_list'
   get "/users_with_this_todo/:todo", :to => 'todos#users_with_this_todo'
   get "/see_user_list/:name", :to => 'users#see_user_list'
+  get "/rsvp/:event_id", :to => 'events#rsvp'
+  get "/attendees/:event_id", :to => 'events#attendees_list'
 
 
 

@@ -1,0 +1,10 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<% @attendees.each do |attendee| %>
+  <%= link_to attendee.name, "/see_user_list/#{attendee.name}"  %></br>
+<% end %>
