@@ -6,7 +6,7 @@
 
 this is the results.html page. <br>
 <% @results.each do |result| %>
-	<img src="<%= result.image %>" height="250" >
+	<a href="/show/<%= result.id %>"><img src="<%= result.image %>" height="250" ></a>
   <%= result.name %> [ <%= link_to 'Users', "/users_with_this_todo/#{result.name}"  %>
   <%=  Todo.find_by(:name => result.name).users.count %>] <br>
   <%= link_to "Events [#{result.events.count}]", "/events/#{result.name}"  %> | 

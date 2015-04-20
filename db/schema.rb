@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419175522) do
+ActiveRecord::Schema.define(version: 20150420150217) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -79,6 +79,11 @@ ActiveRecord::Schema.define(version: 20150419175522) do
     t.string  "img"
     t.float   "price"
     t.date    "exp_date"
+  end
+
+  create_table "travels_todos", force: :cascade do |t|
+    t.integer "travel_deals_id"
+    t.integer "todos_id"
   end
 
   create_table "user_todos", force: :cascade do |t|

@@ -1,8 +1,7 @@
 class WelcomeController < ApplicationController
 
   def home
-    @todo = Todo.new
-    
+    @todo = Todo.new 
   end
 
 end

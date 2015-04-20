@@ -78,10 +78,15 @@ class TodosController < ApplicationController
 
   end
 
+  def show
+    @todo = Todo.find_by(:id => search_params[:id])
+    render 'show'
+  end
+
 
   private
 
   def search_params
-    params.permit(:name)
+    params.permit(:name, :id)
   end
 end
