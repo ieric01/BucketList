@@ -1,0 +1,21 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h1>Inbox:</h1><br>
+<% current_user.mailbox.inbox.each do |conversation| %>
+  Received from: <%= User.find(conversation.receipts[1].receiver_id).name %><br>
+  Subject: <%= conversation.subject %><br>
+  Message: <%= conversation.messages[0].body %><br><br>
+<% end %>
+
+<hr/>
+<h1>Sentbox:</h1><br>
+<% current_user.mailbox.sentbox.each do |conversation| %>
+  Sent to: <%= User.find(conversation.receipts[0].receiver_id).name %><br>
+  Subject: <%= conversation.subject %><br>
+  Message: <%= conversation.messages[0].body %><br><br>
+  
+<% end %>
