@@ -138,6 +138,11 @@ ActiveRecord::Schema.define(version: 20150420182518) do
     t.date    "exp_date"
   end
 
+  create_table "travels_todos", force: :cascade do |t|
+    t.integer "travel_deals_id"
+    t.integer "todos_id"
+  end
+
   create_table "user_todos", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "todo_id"

@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   
   #Testing 
 
+  get '/show/:id' => 'todos#show'
+  
   post '/search_suggestions' => 'search_suggestions#index'
 
   get '/search' => 'todos#search'
