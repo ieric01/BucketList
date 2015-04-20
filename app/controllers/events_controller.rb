@@ -34,8 +34,7 @@ class EventsController < ApplicationController
   end
 
   def attendees_list
-    binding.pry
-    redirect_to :back
+    @attendees = Event.find(params['event_id']).users.uniq
     
   end
 

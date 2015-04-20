@@ -11,7 +11,7 @@ class TodosController < ApplicationController
 
   def search    
     fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
-    @results = fz.find_all(search_params)
+    @results = fz.find_all(search_params).reverse
 
     render 'results'
   end
