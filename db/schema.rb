@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150420143523) do
+=======
+ActiveRecord::Schema.define(version: 20150419175522) do
+>>>>>>> 155c2bde0df6555e85db2ea0bf6f2db21404594d
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -74,6 +78,15 @@ ActiveRecord::Schema.define(version: 20150420143523) do
     t.string   "new_image_content_type"
     t.integer  "new_image_file_size"
     t.datetime "new_image_updated_at"
+  end
+
+  create_table "travel_deals", force: :cascade do |t|
+    t.string  "url"
+    t.integer "deal_id"
+    t.string  "title"
+    t.string  "img"
+    t.float   "price"
+    t.date    "exp_date"
   end
 
   create_table "user_todos", force: :cascade do |t|

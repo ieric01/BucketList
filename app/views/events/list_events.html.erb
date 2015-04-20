@@ -27,20 +27,29 @@ events page
   <%= f.submit %>
 <% end %>
 <br>
-
 <%= 'No events have been created' if @events.empty? %>
 <% @events.each do |event| %>
   <%= event.name.titleize %><br>
+  Organizer: <%= User.find(event.user_id).name %> <br>
  Location: <%= event.location %><br>
  Date: <%= event.date.to_formatted_s(:short) %><br>
  Time: <%= event.time.to_formatted_s(:time) %><br>
  Notes: <%= event.notes %><br>
  Created:  <%=time_ago_in_words(Time.at(event.created_at))%> ago 
+ <br>
 
+ <% if  event.users.include? current_user %>
+    <%= link_to 'Leave Event', "/leave_event/#{event.id}" %> 
+<% else %>
+    <%= link_to 'RSVP', "/rsvp/#{event.id}" %> 
+  <%  end %>
+ 
+ 
+ | 
+ <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>]
 <% end %>
 
 
 
-
-<br>
+<br><br><br>
 <%= link_to 'Back', :back %>
