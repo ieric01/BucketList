@@ -5,17 +5,16 @@
 
 
 this is the results.html page. <br>
-
-<h4> Create New Todo </h4>
---------------------------
-<%= form_for @todo do |f| %>
-  <%= f.label "name" %>
-  <%= f.text_field :name %><br>
-  <%= f.label "Description" %><br>
-  <%= f.text_area :description %><br>
-  <%= f.submit "Create Todo" %>
-<% end %><br>
-
+   <h4> Create New Todo </h4>
+ --------------------------
+ <%= form_for @todo, :html => { :multipart => true } do |form| %>
+ <%= form.label "name" %>
+ <%= form.text_field :name %><br>
+ <%= form.label "Description" %><br>
+ <%= form.text_area :description %><br>
+ <%= form.file_field :new_image %>  
+ <%= form.submit "Create Todo" %>
+ <% end %><br>
 
 
 <% @results.each do |result| %>

@@ -2,10 +2,10 @@ class TodosController < ApplicationController
 
   before_action :authorized_user
 
-  # def create
-  #   binding.pry
-
-  # end
+  def create
+    # binding.pry
+    puts "hello"
+  end
 
   def authorized_user
     if current_user.nil?
@@ -18,6 +18,7 @@ class TodosController < ApplicationController
     fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
     # binding.pry
     @results = fz.find_all(search_params)
+    # binding.pry
     # @results = search_params[:name]
     # flash[:message] = @results
     #Here I created an instance variable todo for the form helper
@@ -88,5 +89,6 @@ class TodosController < ApplicationController
 
   def search_params
     params.permit(:name)
+    #permit new_image if neccessary
   end
 end
