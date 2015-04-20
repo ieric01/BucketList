@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/see_user_list/:name", :to => 'users#see_user_list'
   get "/rsvp/:event_id", :to => 'events#rsvp'
   get "/attendees/:event_id", :to => 'events#attendees_list'
-
+  get "/leave_event/:event_id", :to => 'events#leave_event'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
