@@ -14,13 +14,12 @@ namespace :seed do
 		p = Nokogiri::HTML(open("http://bucketlist.org/featured/"))
 		i = 0
 		while p.css('.info>h2>a')[i] != nil
-			# binding.pry
 			title = p.css('.info>h2>a')[i].text
 			url = p.css('#grid-container div.grid-item div.img-thumbnail')[i]['style'].match(/\'(.+)\'/)
 			img_url = url[1]
+			open_url = img_url.match(/(.+)\.jpg/) 
 			# binding.pry
-			#test
-			Todo.create(name: title, image: img_url)
+			Todo.create(name: title, image: open_url[0])
 			i += 1
 		end
 	end
