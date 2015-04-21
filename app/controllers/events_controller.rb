@@ -2,12 +2,11 @@ class EventsController < ApplicationController
 
   def list_events
     @event = Event.new
-    @events = Todo.find_by(:name => params['todo']).events
+    @events = Todo.find_by(:id => params['todo_id']).events
 
   end
 
   def create
-
     event = Event.create(:name => params['event']['name'], 
                  :location => params['event']['location'], 
                  :date => params['event']['date'], 

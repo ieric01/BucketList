@@ -31,7 +31,7 @@ You've completed:
 
 <% @completed_todo_array.each do |user_todo| %>
   <% if Todo.find(user_todo.todo_id).image %>
-  	<img src="<%= Todo.find(user_todo.todo_id).image %>" height="75">
+  	 <a href="/show/<%= Todo.find(user_todo.todo_id).id %>"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="75"></a>
   <% else %>
   <a href="/show/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "75x75" %></a>
   <% end %>

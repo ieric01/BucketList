@@ -3,7 +3,7 @@
 <br>
 <br>
 <br>
-
+<div class="inbox">
 <h1>Inbox:</h1><br>
 <% current_user.mailbox.inbox.each do |conversation| %>
   Received from: <%= User.find(conversation.receipts[1].receiver_id).name %><br>
@@ -19,3 +19,4 @@
   Message: <%= conversation.messages[0].body %><br><br>
   
 <% end %>
+</div>
