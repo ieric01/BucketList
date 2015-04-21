@@ -20,7 +20,7 @@ events page
         <%= f.text_area :notes, :cols => "90", :rows => "5" %>
         
         <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :todo_id, :value => Todo.find_by(:name => params['todo']).id %>
+        <%= f.hidden_field :todo_id, :value => Todo.find(params['todo_id']).id %>
         <br>
 
 

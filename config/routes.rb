@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "/mailbox/inbox", :to => 'mailbox#inbox'
   get "/new_message", :to => 'mailbox#new_message'
-  get "/events/:todo", :to => 'events#list_events'
+  get "/todo/:todo_id/events", :to => 'events#list_events'
   resources :events
 
   get "/auth/facebook/callback", :to => 'sessions#create'
