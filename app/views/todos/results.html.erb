@@ -9,7 +9,7 @@ this is the results.html page. <br>
  --------------------------
  <%= form_for @todo, :url => todos_path, :html => { :multipart => true } do |form| %>
  <%= form.label "name" %>
- <%= form.text_field :name %><br>
+ <%= form.text_field :name, {:value => params['name'], :size => 60 }  %><br>
  <%= form.label "Description" %><br>
  <%= form.text_area :description %><br>
  <%= form.file_field :new_image %>  

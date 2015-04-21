@@ -4,29 +4,43 @@ added omniauth
 nav-bar
 search functionality
 my list
+done button - when completed with 
+count of how many users have task in their list, displayed on results page. unless already added.
+see users following todo.
+-click on count and see all user names.
+ability to create new todo.
+hide RSVP link if user has already RSVP. have a opt-out option.
+individual who created Event is automatically in as organizer?
 
 todo
 ----
-done button - when completed with 
-count of how many users have task in their list, displayed on results page. unless already added.
--click on count and see all user names.
-optional popup. like in Dan's Fine twitter app.
-see other users list. a master list of all users.
-see users following todo.
+api coupons linking to todos.
+
+a master list of all users.
 see todo leadership board. http://www.sitepoint.com/leaderboards-rails/
 set up PM system
-ability to create new todo.
-flash notices. https://github.com/RobinBrouwer/gritter
+- clear inbox
+
+event
+- edit
+- delete
 edit/update functionality for events. limited to the user_id that created the event.
-hide RSVP link if user has already RSVP. have a opt-out option.
-individual who created Event is automatically in as organizer?
+
+list of what events user is attending 
+
+flash notices. https://github.com/RobinBrouwer/gritter
 use awesome font for buttons.
 list of events you're organizing.
 
+deploy to heroku
+
+optional
+--------
+data visualization for todos.
+optional popup. like in Dan's Fine twitter app.
+research chatroom gems
+forum gems
 
 
 
 
-1. Ming - Omni-Auth FB Authentication
-2. Hessvacio - API keys 
-3. Eric - 
