@@ -6,11 +6,13 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  *= require_self
+ *= require animate
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
+
 
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -69,6 +71,8 @@ body {
 
 #content {
     margin-top: 250px;
+   
+
 }
 
 #genres {
