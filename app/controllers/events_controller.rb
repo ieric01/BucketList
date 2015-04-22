@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
 
-  def list_events
-    @event = Event.new
-    @events = Todo.find_by(:id => params['todo_id']).events
 
+  def new
+    @event = Event.new
+    render 'new_event'
   end
 
   def create
@@ -17,13 +17,21 @@ class EventsController < ApplicationController
     #Event.find(params['event']['user_id']).event_users.create(:user_id => current_user.id)
     event.event_users.create(:user_id => current_user.id)
 
-    
+    @events = Todo.find_by(:id => params['event']['todo_id']).events
 
-    redirect_to :back
+    #rendering show page of all created events works at this point.
+    #However, the url convention should be 
+    # render "show"
+    redirect_to "/todos/#{event.todo_id}/events/list"
+  
+    # redirect_to :back
   end
 
-  def show
+  def list_events
+    @events = Todo.find(params['todo_id']).events
+  end
 
+  def show  
   end
 
   def rsvp

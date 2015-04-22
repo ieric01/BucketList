@@ -1,40 +1,15 @@
 <br>
 <br>
 <br>
-events page
 
-
-<%= form_for @event do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
-
-  <%= f.label :location %>:
-  <%= f.text_field :location %><br />
-
-    <%= f.label :time %>:
-    <%= f.date_field :date %>
-    <%= f.time_field :time %><br />
-
-
-        <%= f.label :notes %>:
-        <%= f.text_area :notes, :cols => "90", :rows => "5" %>
-        
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :todo_id, :value => Todo.find(params['todo_id']).id %>
-        <br>
-
-
-  <%= f.submit %>
-<% end %>
-<br>
 <%= 'No events have been created' if @events.empty? %>
 <% @events.each do |event| %>
   <%= event.name.titleize %><br>
   Organizer: <%= User.find(event.user_id).name %> <br>
- Location: <%= event.location %><br>
- Date: <%= event.date.to_formatted_s(:short) %><br>
- Time: <%= event.time.to_formatted_s(:time) %><br>
- Notes: <%= event.notes %><br>
+ Location: <%= event.location if event.location %><br>
+ Date: <%= event.date.to_formatted_s(:short) if event.date %><br>
+ Time: <%= event.time.to_formatted_s(:time) if event.time %><br>
+ Notes: <%= event.notes if event.notes %><br>
  Created:  <%=time_ago_in_words(Time.at(event.created_at))%> ago 
  <br>
 
@@ -43,13 +18,8 @@ events page
 <% else %>
     <%= link_to 'RSVP', "/rsvp/#{event.id}" %> 
   <%  end %>
- 
- 
- | 
  <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>]
 <% end %>
-
-
 
 <br><br><br>
 <%= link_to 'Back', :back %>
