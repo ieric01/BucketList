@@ -27,7 +27,7 @@
   <% end %>
   <%= result.name %> [ <%= link_to 'Users', "/users_with_this_todo/#{result.id}"  %>
   <%=  Todo.find_by(:name => result.name).users.count %>] <br>
-  <%= link_to 'Events', "/todo/#{result.id}/events"  %> | 
+  <%= link_to 'Events', "/todos/#{result.id}/events"  %> | 
 
 
   <% if current_user.todos.include? Todo.find_by(:name => result.name) %>

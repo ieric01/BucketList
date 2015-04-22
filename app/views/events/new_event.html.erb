@@ -1,0 +1,29 @@
+<br>
+<br>
+<br>
+events page
+
+<%= form_for @event do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label :location %>:
+  <%= f.text_field :location %><br />
+
+    <%= f.label :time %>:
+    <%= f.date_field :date %>
+    <%= f.time_field :time %><br />
+
+
+        <%= f.label :notes %>:
+        <%= f.text_area :notes, :cols => "90", :rows => "5" %>
+        
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :todo_id, :value => Todo.find(params['todo_id']).id %>
+        <br>
+
+
+  <%= f.submit %>
+<% end %>
+<br>
+
