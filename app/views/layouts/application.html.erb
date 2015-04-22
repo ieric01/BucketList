@@ -31,13 +31,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Bucketlist<span class="sr-only">(current)</span></a></li>
+
+        <% if current_user %>
                 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Message [<%= current_user.mailbox.inbox.count if current_user%>] <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Message [<%= current_user ? unread_messages_count : 0 %>] <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/new_message">New Message</a></li>
+            <li><a href="/conversations/new">New Message</a></li>
             <li><a href="/mailbox/inbox">Mailbox</a></li>
              </ul>
         </li>
+      <% end %>
       </ul>
 
 
@@ -70,6 +73,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 </div>
+
 
 <%= yield %>
 
