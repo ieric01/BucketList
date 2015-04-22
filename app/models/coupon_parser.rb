@@ -4,7 +4,6 @@ class CouponParser
 	CONN = ActiveRecord::Base.connection
 	def populate_travels
 		 deals_json = JSON.parse(RestClient.get("http://api.8coupons.com/v1/getrealtimetraveleals?limit=1000&key=#{COUPONKEY}")) 
-		 #Rails.logger.info 
 		 puts "pull #{deals_json.length} from api"
 		 mass_insert_query("travel_deals", create_deals_array(deals_json))
 	end
@@ -25,7 +24,6 @@ class CouponParser
 			array = deals_array.shift(100)
 			sql = "insert into #{table} (url, deal_id, title, img, price, exp_date) values #{array.join(",")}"
 			result = CONN.execute sql	
-			# Rails.logger.info
 			puts "inserted #{result} into #{table}"
 		end
 	end
