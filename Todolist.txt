@@ -22,9 +22,9 @@ api coupons linking to todos.
 a master list of all users.
 see todo leadership board. http://www.sitepoint.com/leaderboards-rails/
 set up PM system
-- clear inbox
-- time stamp the messages.
+- have pictures show up
 
+headline on home page.
 
 event
 - edit
