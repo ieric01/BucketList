@@ -34,7 +34,6 @@ class TodosController < ApplicationController
     UserTodo.create(:user_id => current_user.id, :todo_id => new_todo.id)
     #Create the Todo object
     #Associate the Todo object with
-    
     redirect_to "/mylist"
   end
 
@@ -99,7 +98,6 @@ class TodosController < ApplicationController
     @todo = Todo.find_by(:id => search_params[:id])
     render 'show'
   end
-
 
   private
 

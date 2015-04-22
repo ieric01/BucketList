@@ -1,12 +1,30 @@
 Rails.application.routes.draw do
 
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+
+    resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
+
+
+
   resources :search_suggestions
   resources :comments
   post "/new_message", :to => 'mailbox#send_message'
 
   get "/mailbox/inbox", :to => 'mailbox#inbox'
   get "/new_message", :to => 'mailbox#new_message'
-  get "/todo/:todo_id/events", :to => 'events#list_events'
+  #the event link from the todos page should hit the events form page where u create the event
+  get "/todos/:todo_id/events", :to => 'events#new'
+
+
+  get "/todos/:todo_id/events/list", :to => 'events#list_events'
   resources :events
 
   get "/auth/facebook/callback", :to => 'sessions#create'

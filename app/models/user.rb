@@ -23,9 +23,9 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
 
-#  def name
-    #self.name
-  #end
+ def mailboxer_name
+    self.name
+  end
 
   def mailboxer_email(object)
     return email

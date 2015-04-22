@@ -1,17 +1,15 @@
-Home page
+<div class="site_headline">
 
-
-#Add the search box
-#Add the sign in button which redirects to bucketlist page
-
-
+  <h1>Your dreams, made possible</h1>
+  <h4>3,046 Members are tracking 11,341 Goals</h4>
+  <div>
 
 <div class="container">
   <div class="row">
+    
     <div id="content" class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       <%= form_tag("/search", :method => "get", :enforce_utf8 => false) do %>
         <div class="field">
-          <%= label_tag :name %>
           <%= text_field_tag :name, nil, {:placeholder => 'What do you want to do?', :size => 60 } %>
         </div>
       <% end %>

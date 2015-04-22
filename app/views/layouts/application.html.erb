@@ -34,9 +34,9 @@
 
         <% if current_user %>
                 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Message [<%= current_user.mailbox.inbox.count if current_user %>] <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Message [<%= current_user ? unread_messages_count : 0 %>] <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/new_message">New Message</a></li>
+            <li><a href="/conversations/new">New Message</a></li>
             <li><a href="/mailbox/inbox">Mailbox</a></li>
              </ul>
         </li>
@@ -74,7 +74,24 @@
 </nav>
 </div>
 
+
 <%= yield %>
+
+<div class="navbar navbar-fixed-bottom">
+<footer class="footer">
+
+  <div class="container">
+    <ul class="text-muted">
+      <li>Made with <i class="fa fa-heartbeat"></i></span>
+      <a href="http://flatironschool.com">@ flatironschool</a> by <a href="https://github.com/ieric01">Eric</a>,
+      <a href="https://github.com/hhassan1230">Hess</a>,
+      and <a href="https://github.com/scripore">Ming</a></li>|
+      <li><a href="https://github.com/ieric01/BucketList">Source code</a></li> |
+      <li><a href="/nope">Feedback</a></li>
+    </ul>
+  </div>
+</footer>
+</div>
 
 </body>
 </html>

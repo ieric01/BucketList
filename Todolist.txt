@@ -11,15 +11,25 @@ see users following todo.
 ability to create new todo.
 hide RSVP link if user has already RSVP. have a opt-out option.
 individual who created Event is automatically in as organizer?
+deploy to heroku
 
 todo
 ----
+footer
+demo user login.
+
 api coupons linking to todos.
 
 a master list of all users.
 see todo leadership board. http://www.sitepoint.com/leaderboards-rails/
 set up PM system
-- clear inbox
+- sentbox, trash show messages.
+
+todos/14/events
+
+- have pictures show up
+
+headline on home page.
 
 event
 - edit
@@ -32,7 +42,8 @@ flash notices. https://github.com/RobinBrouwer/gritter
 use awesome font for buttons.
 list of events you're organizing.
 
-deploy to heroku
+
+forum - https://github.com/radar/forem
 
 optional
 --------
