@@ -12,6 +12,30 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
 
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: #099666;  /*Sets the text hover color on navbar*/
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
+ a:hover, .navbar-default .navbar-nav > .active > a:focus {
+color: white; /*BACKGROUND color for active*/
+background-color: #006666;
+}
+
+  .navbar-default {
+    background-color:  #006666;
+    border-color: #030033;
+}
+
+
+
+
+
+
+
+
+
 body {
   background-image: image-url('backimg3.jpg'); // link to /assets/images/texture.png
   background-repeat: no-repeat;
@@ -90,4 +114,42 @@ body {
 
 .inbox {
 margin-left: 50px;
+}
+
+
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px; 
+  background-color: #006666;
+  color: #fff;
+  text-align: center;
+overflow-y: auto;
+}
+.container .text-muted a,
+.container .text-muted {
+  margin: 20px 0;
+  color: #e7e7e7;
+  text-decoration: none;
+}
+.container .text-muted a:hover {
+  color: #3399ff;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+footer ul {
+  padding: 0;
+}
+footer li {
+  display: inline-block;
+  padding: 0 1em 0 1em;
+}
+footer li:first-child {
+  padding-left: 0;
 }

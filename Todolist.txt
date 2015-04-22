@@ -15,6 +15,7 @@ deploy to heroku
 
 todo
 ----
+footer
 demo user login.
 
 api coupons linking to todos.
@@ -22,6 +23,10 @@ api coupons linking to todos.
 a master list of all users.
 see todo leadership board. http://www.sitepoint.com/leaderboards-rails/
 set up PM system
+- sentbox, trash show messages.
+
+todos/14/events
+
 - have pictures show up
 
 headline on home page.
