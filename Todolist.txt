@@ -14,12 +14,14 @@ individual who created Event is automatically in as organizer?
 deploy to heroku
 footer
 routes
+demo user login. - fake facebook account.
+PM system now has profile pics. 
+
 
 todo
 ----
 todos/1
 
-demo user login. - fake facebook account.
 move comments to todo show page
 drop down search clickable
 
