@@ -9,7 +9,7 @@
   <% else %>
 		<a href="/todos/<%= @todo.id %>"><img src="<%= @todo.image %>" ></a><br>
   <% end %>
-	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: [<%= @todo.events.count %>]</a><br>
+	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: </a>[<%= @todo.events.count %>]<br>
 <% if current_user.todos.include? Todo.find_by(:name => @todo.name) %>
     <%= link_to 'Delete from list', "/delete_from_list/#{@todo.name}"  %>
   <% else %>
@@ -20,7 +20,7 @@
 <% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
 	
 	<h4>Deals Related to This Event: </h4>
-	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).each do |deal|%>
+	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).reverse.each do |deal|%>
 	
 	<a href=<%= "#{deal.url}" %>><%= deal.title %></a><br>
 	<% end %>
