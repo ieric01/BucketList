@@ -8,8 +8,11 @@
 <% @attendees.each do |attendee| %>
 
 	<img src="<%= attendee.user_img_url %>">
-	
-  <%= link_to attendee.name, "/see_user_list/#{attendee.name}"  %></br>
+		<% if current_user == attendee %>
+	  <%= link_to " #{attendee.name} (me)", "/see_user_list/#{attendee.name}"  %></br>
+	  <% else %>
+	  <%= link_to attendee.name, "/see_user_list/#{attendee.name}" %>
+	  <% end %>
 <% end %>
 
 <br>
