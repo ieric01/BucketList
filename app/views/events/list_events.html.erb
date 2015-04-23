@@ -4,24 +4,22 @@
 
 <%= 'No events have been created' if @events.empty? %>
 <% @events.each do |event| %>
-  <br><%= event.name.titleize %><br>
+  <%= event.name.titleize %><br>
   Organizer: <%= User.find(event.user_id).name %> <br>
  Location: <%= event.location if event.location %><br>
  Date: <%= event.date.to_formatted_s(:short) if event.date %><br>
  Time: <%= event.time.to_formatted_s(:time) if event.time %><br>
  Notes: <%= event.notes if event.notes %><br>
- Created:  <%=time_ago_in_words(Time.at(event.created_at))%> ago 
+ Created:  <%= time_ago_in_words(Time.at(event.created_at)) %> ago 
  <br>
 
  <% if  event.users.include? current_user %>
-    <%= link_to 'Leave Event', "/leave_event/#{event.id}" %> 
+    <%= link_to 'Leave Event', "/leave_event/#{event.id}" %><br>
+    <%= link_to 'Delete Event', "/todos/#{event.todo.id}/destroy/#{event.id}", :method => :DELETE, :confirm => "Are you sure?" %> <br>
 <% else %>
     <%= link_to 'RSVP', "/rsvp/#{event.id}" %> 
   <%  end %>
- <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>]
+ <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>] <br>
 <% end %><br>
-
 <br><br><br>
 <%= link_to 'Back', :back %>
-<br>
-<br>

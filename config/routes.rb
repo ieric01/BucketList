@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get "/rsvp/:event_id", :to => 'events#rsvp'
   get "/attendees/:event_id", :to => 'events#attendees_list'
   get "/leave_event/:event_id", :to => 'events#leave_event'
+  delete "todos/:todo_id/destroy/:event_id", :to => 'events#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,7 +62,6 @@ Rails.application.routes.draw do
   get "/complete_todo/:id", :to => 'todos#complete_todo'
   get "/completed_list", :to => 'todos#complete_show'
 
-  # delete "/"
 
  
   # Example of regular route:

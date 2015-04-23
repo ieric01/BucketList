@@ -27,7 +27,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
+     # binding.pry
      
+     Event.find(params['event_id']).destroy
+     redirect_to "/todos/#{params[:todo_id]}/events"
   end
 
   def rsvp
