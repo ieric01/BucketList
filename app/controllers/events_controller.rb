@@ -31,7 +31,8 @@ class EventsController < ApplicationController
     @events = Todo.find(params['todo_id']).events
   end
 
-  def show  
+  def destroy
+     
   end
 
   def rsvp

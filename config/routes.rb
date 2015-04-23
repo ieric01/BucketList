@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   
   #Testing 
 
-  get '/show/:id' => 'todos#show'
+  get '/todos/:id' => 'todos#show'
   
   post '/search_suggestions' => 'search_suggestions#index'
 
