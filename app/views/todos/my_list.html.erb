@@ -13,9 +13,9 @@ Incomplete:
 <% @my_todos.each do |todo| %>
   <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
     <% if todo.image != nil %>
-       <a href="/show/<%= todo.id %>"><img src="<%= todo.image %>" height="75" ></a>
+       <a href="/todos/<%= todo.id %>"><img src="<%= todo.image %>" height="75" ></a>
     <% else %>
-       <a href="/show/<%= todo.id %>"><%= image_tag todo.new_image, size: "75x75" %></a>
+       <a href="/todos/<%= todo.id %>"><%= image_tag todo.new_image, size: "75x75" %></a>
     <% end %>
   <%= todo.name %>     <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %>
   <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
@@ -31,9 +31,9 @@ You've completed:
 
 <% @completed_todo_array.each do |user_todo| %>
   <% if Todo.find(user_todo.todo_id).image %>
-  	 <a href="/show/<%= Todo.find(user_todo.todo_id).id %>"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="75"></a>
+  	 <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="75"></a>
   <% else %>
-  <a href="/show/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "75x75" %></a>
+  <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "75x75" %></a>
   <% end %>
     <%= Todo.find(user_todo.todo_id).name %> <%= link_to 'Delete from list', "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %>
 <br>

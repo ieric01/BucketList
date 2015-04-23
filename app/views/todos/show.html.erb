@@ -5,9 +5,9 @@
 
 <h1><%= @todo.name %></h1><br>
 <% unless @todo.image  %>
-    <a href="/show/<%= @todo.id %>"><%= image_tag @todo.new_image, size: "250x250" %></a>
+    <a href="/todos/<%= @todo.id %>"><%= image_tag @todo.new_image, size: "250x250" %></a>
   <% else %>
-		<a href="/show/<%= @todo.id %>"><img src="<%= @todo.image %>" ></a><br>
+		<a href="/todos/<%= @todo.id %>"><img src="<%= @todo.image %>" ></a><br>
   <% end %>
 
 
