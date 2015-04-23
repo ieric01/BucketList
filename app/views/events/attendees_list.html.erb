@@ -6,5 +6,12 @@
 <br>
 
 <% @attendees.each do |attendee| %>
+
+	<img src="<%= attendee.user_img_url %>">
+	
   <%= link_to attendee.name, "/see_user_list/#{attendee.name}"  %></br>
 <% end %>
+
+<br>
+<br>
+<br>
