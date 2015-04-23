@@ -23,12 +23,11 @@ class EventsController < ApplicationController
   end
 
   def list_events
+    @toto = params['todo_id']
     @events = Todo.find(params['todo_id']).events
   end
 
   def destroy
-     # binding.pry
-     
      Event.find(params['event_id']).destroy
      redirect_to "/todos/#{params[:todo_id]}/events"
   end
