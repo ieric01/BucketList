@@ -9,14 +9,14 @@
   <% else %>
 		<a href="/todos/<%= @todo.id %>"><img src="<%= @todo.image %>" ></a><br>
   <% end %>
-
+	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: [<%= @todo.events.count %>]</a><br>
 <% if current_user.todos.include? Todo.find_by(:name => @todo.name) %>
     <%= link_to 'Delete from list', "/delete_from_list/#{@todo.name}"  %>
   <% else %>
     <%= link_to 'Add to list', "/add_to_list/#{@todo.name}"  %>
   <% end %>
 
-<h4>Users With This Item In Their Bucklist: &nbsp; <%= @todo.users.count %></h4>
+<h4>Users With This Event In Their Bucklist: &nbsp; <%= @todo.users.count %></h4>
 <% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
 	
 	<h4>Deals Related to This Event: </h4>

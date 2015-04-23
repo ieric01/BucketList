@@ -2,7 +2,7 @@
 <br>
 <br>
 
-<% th_event_num = @toto %>
+
 <%= 'No events have been created' if @events.empty? %>
 <% @events.each do |event| %>
   <%= event.name.titleize %><br>
@@ -23,4 +23,4 @@
  <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>] <br>
 <% end %><br>
 <br><br><br>
-<%= link_to 'Back', "/todos/#{th_event_num}" %>
+<%= link_to 'Back', "/todos/#{@toto}" %>
