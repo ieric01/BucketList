@@ -4,7 +4,7 @@
 
 <%= 'No events have been created' if @events.empty? %>
 <% @events.each do |event| %>
-  <%= event.name.titleize %><br>
+  <br><%= event.name.titleize %><br>
   Organizer: <%= User.find(event.user_id).name %> <br>
  Location: <%= event.location if event.location %><br>
  Date: <%= event.date.to_formatted_s(:short) if event.date %><br>
@@ -19,7 +19,9 @@
     <%= link_to 'RSVP', "/rsvp/#{event.id}" %> 
   <%  end %>
  <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>]
-<% end %>
+<% end %><br>
 
 <br><br><br>
 <%= link_to 'Back', :back %>
+<br>
+<br>
