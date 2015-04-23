@@ -123,17 +123,19 @@ margin-left: 50px;
 
 .footer {
   position: absolute;
+  background-color: #006666;
+    border: 1px solid #000000;
   bottom: 0;
   width: 100%;
-  height: 70px; 
-  background-color: #006666;
+  height: 58px; 
   color: #fff;
   text-align: center;
-overflow-y: auto;
+  overflow-y: auto;
 }
 .container .text-muted a,
 .container .text-muted {
-  margin: 20px 0;
+  margin: 15px 0;
+  
   color: #e7e7e7;
   text-decoration: none;
 }
@@ -142,7 +144,7 @@ overflow-y: auto;
 }
 .footer > .container {
   padding-right: 15px;
-  padding-left: 15px;
+  padding-left: 45px;
 }
 
 footer ul {
@@ -160,14 +162,12 @@ footer li:first-child {
 ul.ui-autocomplete {
   position: absolute;
   list-style: none;
-  margin: 0;
-  margin-left: 10px;
-  padding: 0;
+  margin-left: 50px;
+  padding: 10px;
   border: solid 1px #999;
   cursor: default;
   li {
     background-color: #FFF;
-    border-top: solid 1px #DDD;
     margin: 0;
     padding: 0;
     a {
