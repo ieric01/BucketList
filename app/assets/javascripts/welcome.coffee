@@ -6,3 +6,5 @@
 jQuery ->
 	$('#name').autocomplete
 		source: "/search_suggestions"
+
+
