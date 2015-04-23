@@ -13,9 +13,16 @@
 
 
 <h4>Users With This Item In Their Bucklist: &nbsp; <%= @todo.users.count %></h4>
-<% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
+
 	<h4>Deals Related to This Event: </h4>
 	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).each do |deal|%>
+	
 	<a href=<%= "#{deal.url}" %>><%= deal.title%></a><br>
 	<% end %>
-<% end %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
