@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :events
 
   get "/auth/facebook/callback", :to => 'sessions#create'
+  get "/auth/guest_login", :to => 'sessions#guest_login'
   get "/signout", :to => 'sessions#destroy'
   get "/mylist", :to => 'todos#my_list'
   get "/users_with_this_todo/:todo", :to => 'todos#users_with_this_todo'
