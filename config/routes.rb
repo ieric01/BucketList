@@ -61,7 +61,7 @@ Rails.application.routes.draw do
   get "/complete_todo/:id", :to => 'todos#complete_todo'
   get "/completed_list", :to => 'todos#complete_show'
 
-
+  # delete "/"
 
  
   # Example of regular route:
