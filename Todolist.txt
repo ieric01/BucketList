@@ -12,11 +12,16 @@ ability to create new todo.
 hide RSVP link if user has already RSVP. have a opt-out option.
 individual who created Event is automatically in as organizer?
 deploy to heroku
+footer
+routes
 
 todo
 ----
-footer
-demo user login.
+todos/1
+
+demo user login. - fake facebook account.
+move comments to todo show page
+drop down search clickable
 
 api coupons linking to todos.
 
