@@ -15,8 +15,7 @@ class CouponGiver
 			final_array << table.where("lower(title) LIKE ?", "%#{word}%")
 		end
 		#present the array results based on match score
-
-    final_array.flatten.uniq
+    final_array.flatten.uniq{|deal| deal.title}
 	end
 
 	def shorten
