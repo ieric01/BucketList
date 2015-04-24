@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'mailboxer'
+gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 gem 'rest-client'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'

@@ -16,7 +16,7 @@
     <%= link_to 'Add to list', "/add_to_list/#{@todo.name}"  %>
   <% end %>
 
-<h4>Users With This Event In Their Bucklist: &nbsp; <%= @todo.users.count %></h4>
+  <h4>Users With This Event In Their Bucklist: &nbsp; <%= @todo.users.count %></h4>
 <% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
 	
 	<h4>Deals Related to This Event: </h4>
