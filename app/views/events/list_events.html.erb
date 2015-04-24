@@ -6,7 +6,7 @@
 <%= 'No events have been created' if @events.empty? %>
 <% @events.each do |event| %>
   <%= event.name.titleize %><br>
-  Organizer: <%= User.find(event.user_id).name %> <br>
+  Organizer: <img src="<%= User.find(event.user_id).user_img_url %>"> <%= User.find(event.user_id).name %> <br>
  Location: <%= event.location if event.location %><br>
  Date: <%= event.date.to_formatted_s(:short) if event.date %><br>
  Time: <%= event.time.to_formatted_s(:time) if event.time %><br>
@@ -22,5 +22,7 @@
   <%  end %>
  <%= link_to 'Attendees', "/attendees/#{event.id}" %>[<%= event.users.uniq.count %>] <br>
 <% end %><br>
+
+<%= link_to 'Create New Event', "/todos/#{@toto}/events/new" %>
 <br><br><br>
 <%= link_to 'Back', "/todos/#{@toto}" %>
