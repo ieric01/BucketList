@@ -158,3 +158,28 @@ ul.ui-autocomplete {
 .site_headline>a:hover { 
     background-color: #187b20;
 }
+
+#list_image {
+margin-left: 40px;
+}
+
+#image_tag img{
+border: 1px solid #888888;
+border-radius: 18px;
+box-shadow: 3px 3px 20px #888888;
+}
+
+
+#completed_list_image {
+margin-left: 40px;
+}
+
+#completed_image_tag img{
+border: 1px solid #888888;
+border-radius: 18px;
+box-shadow: 3px 3px 20px #888888;
+}
+
+#my_list h2 {
+    text-align: center;
+}

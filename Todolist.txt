@@ -15,7 +15,9 @@ deploy to heroku
 footer
 routes
 demo user login. - fake facebook account.
+set up PM system
 PM system now has profile pics. 
+- sentbox, trash show messages.
 
 
 todo
@@ -29,8 +31,6 @@ api coupons linking to todos.
 
 a master list of all users.
 see todo leadership board. http://www.sitepoint.com/leaderboards-rails/
-set up PM system
-- sentbox, trash show messages.
 
 todos/14/events
 
