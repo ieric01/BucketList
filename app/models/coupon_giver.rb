@@ -16,7 +16,7 @@ class CouponGiver
 		end
 		#present the array results based on match score
 
-		final_array.flatten
+    final_array.flatten.uniq
 	end
 
 	def shorten
