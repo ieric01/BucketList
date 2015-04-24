@@ -12,7 +12,7 @@ class CouponGiver
 
 		#look for deal based on the parsed name
 		todo_title_array.each do |word| 
-			final_array << table.where("title LIKE '%#{word}%'")	
+			final_array << table.where("title LIKE ?", "%#{word}%")	
 		end
 		#present the array results based on match score
 
