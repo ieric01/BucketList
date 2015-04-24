@@ -4,3 +4,6 @@ namespace :search_suggestions do
 		SearchSuggestion.index_todos
 	end
 end
+
+
+
