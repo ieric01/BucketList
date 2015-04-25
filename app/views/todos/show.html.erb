@@ -21,7 +21,7 @@
 	
 	<h4>Deals Related to This Event: </h4>
 	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).reverse.each do |deal|%>
-    <img src= "<%=deal.img %>", width=90<D-r>>
+    <a href=<%= "#{deal.url}" %>><img src= "<%=deal.img %>", width=90<D-r>></a>
 	<a href=<%= "#{deal.url}" %>><%= deal.title %></a><br>
 	<% end %>
 
