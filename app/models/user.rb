@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_messageable
+  
   has_many :user_todos
   has_many :todos, :through => :user_todos
   has_many :comments
@@ -20,8 +22,6 @@ class User < ActiveRecord::Base
 		user.user_img_url = auth["info"]["image"]
 		end
 	end
-
-  acts_as_messageable
 
  def mailboxer_name
     self.name
