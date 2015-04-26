@@ -18,7 +18,6 @@
 
   <h4>Users With This Event In Their Bucklist: &nbsp; <%= @todo.users.count %></h4>
 <% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
-	
 	<h4>Deals Related to This Event: </h4>
 	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).reverse.each do |deal|%>
     <a href=<%= "#{deal.url}" %>><img src= "<%=deal.img %>", width=90<D-r>></a>
@@ -26,6 +25,16 @@
 	<% end %>
 
 <% end %>
+<% unless @comments.empty? %>
+<h4> Users Comments: </h4>
+<ul>
+	<%  @comments.each do |comment| %>
+		<li><h5><img src="<%=comment.user.user_img_url %>" style="padding-right: 15px"><%= "#{comment.user.first_name}: '#{comment.content}'" %></h5></li>
+	<% end %>
+	</ul>
+<% end %>
+
+<%= render 'partials/comment_form' %>
 <br>
 <br>
 <br>

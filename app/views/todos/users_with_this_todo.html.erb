@@ -13,25 +13,7 @@
   <br>
 <% end %>
 
-
-
-
-<%= form_for @comment do |f| %>
-  
-  <%= f.text_area :content, :cols => "90", :rows => "5" %>
-  <%= f.hidden_field :todo_id, :value => @todo_id %>
-  <br />
-
-
-
-   <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Post Comment</button>
-      </div>
-   </div>
-
-<% end %>
+<%= render 'partials/comment_form' %>
 
 <% @users_with_todo.each do |user| %>
   <%= link_to  user.name, "/see_user_list/#{user.name}"  %><br>

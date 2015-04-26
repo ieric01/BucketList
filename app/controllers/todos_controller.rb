@@ -87,15 +87,18 @@ class TodosController < ApplicationController
   end
 
   def users_with_this_todo
-    @todo_id = params['todo'].to_i
-    @comments = Comment.where(:todo_id => @todo_id )
-    @users_with_todo = Todo.find(params['todo'].to_i).users
+    @todo = Todo.find(params['todo'])
+    @comments = @todo.comments
+    @users_with_todo = @todo.users
     @comment = Comment.new
     render 'users_with_this_todo'
   end
 
   def show
     @todo = Todo.find_by(:id => search_params[:id])
+    @comments = @todo.comments.includes(:user)
+    @comment = Comment.new
+    @todo_id = @todo.id
     render 'show'
   end
 
