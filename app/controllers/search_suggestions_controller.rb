@@ -3,12 +3,12 @@ class SearchSuggestionsController < ApplicationController
 
     results = SearchSuggestion.suggestions_scroll(search_params[:term])
     
-    results2 = results.map do |todo| 
+    results.map! do |todo| 
      current_todo = Todo.find_by_name(todo)
-      {label: "#{current_todo.name}", value:"/todos/#{current_todo.id}"}
+      {label: "#{current_todo.name}", url_value:"/todos/#{current_todo.id}"}
     end 
 
-    render :json => results2
+    render :json => results
 
   end
 
