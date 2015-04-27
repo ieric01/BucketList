@@ -1,11 +1,11 @@
 class SearchSuggestion < ActiveRecord::Base
 
 	def self.suggestions_scroll(prefix)
-		suggestions = Todo.where("name LIKE ?", "%#{prefix}%").limit(10).pluck(:name)
+		suggestions = Todo.where("lower(name) LIKE ?", "%#{prefix}%").limit(10).pluck(:name)
 	end
 
 	def self.results_objects(prefix)
-			suggestions = Todo.where("name LIKE ?", "%#{prefix}%").limit(20)
+			suggestions = Todo.where("lower(name) LIKE ?", "%#{prefix}%").limit(20)
 	end
 
 	def self.index_todos
