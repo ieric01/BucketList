@@ -5,7 +5,7 @@ class SearchSuggestion < ActiveRecord::Base
 	end
 
 	def self.results_objects(prefix)
-			suggestions = Todo.where("lower(name) LIKE ?", "%#{prefix}%").limit(20)
+			suggestions = Todo.where("name LIKE ?", "%#{prefix}%").limit(20)
 	end
 
 	def self.index_todos

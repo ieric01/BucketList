@@ -29,7 +29,7 @@
 <h4> Users Comments: </h4>
 <ul>
 	<%  @comments.each do |comment| %>
-		<li><h5><img src="<%=comment.user.user_img_url %>" style="padding-right: 15px"><%= "#{comment.user.first_name}: '#{comment.content}'" %></h5></li>
+		<li><h5><img src="<%=comment.user.user_img_url %>" style="padding-right: 15px" height="50" width="65"><%= "#{comment.user.first_name}: '#{comment.content}'" %></h5></li>
 	<% end %>
 	</ul>
 <% end %>
