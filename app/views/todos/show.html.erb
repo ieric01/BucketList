@@ -12,11 +12,10 @@
 	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: </a>[<%= @todo.events.count %>]<br>
 <% if current_user.todos.include? Todo.find_by(:name => @todo.name) %>
     <%= link_to 'Delete from list', "/delete_from_list/#{@todo.name}"  %>
-  <% else %>
+<% else %>
     <%= link_to 'Add to list', "/add_to_list/#{@todo.name}"  %>
-  <% end %>
-
-  <h4>Users With This Event In Their Bucklist: &nbsp; <%= @todo.users.count %></h4>
+<% end %>
+  <h4>Users With This Event In Their Bucklist: &nbsp; <a href="/users_with_this_todo/<%= @todo.id %>"><%= @todo.users.count %></a></h4>
 <% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
 	<h4>Deals Related to This Event: </h4>
 	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).reverse.each do |deal|%>
@@ -26,7 +25,6 @@
 	<% else %>
 		<h4>No Deals Related to This Event</h4><br>
 <% end %>
-<h4>Comments:</h4>
 <% unless @comments.empty? %>
 <h4> Users Comments: </h4>
 <ul>
@@ -35,8 +33,9 @@
 	<% end %>
 	</ul>
 <% end %>
-
-<%= render 'partials/comment_form' %>
+<% unless current_user.name == "guest" %>
+	<%= render 'partials/comment_form' %>
+<% end %>
 <br>
 <br>
 <br>

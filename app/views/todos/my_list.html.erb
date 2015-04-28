@@ -83,7 +83,8 @@ $(function () {
 
 
     <% end %>
-  <%= todo.name %>     <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %>
+  <%= todo.name %><br> 
+  <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
   <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
   </div>
 <% end %>
