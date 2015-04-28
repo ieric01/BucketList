@@ -21,10 +21,12 @@
 	<h4>Deals Related to This Event: </h4>
 	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).reverse.each do |deal|%>
     <a href=<%= "#{deal.url}" %>><img src= "<%=deal.img %>", width=90<D-r>></a>
-	<a href=<%= "#{deal.url}" %>><%= deal.title %></a><br>
+		<a href=<%= "#{deal.url}" %>><%= deal.title %></a><br>
 	<% end %>
-
+	<% else %>
+		<h4>No Deals Related to This Event</h4><br>
 <% end %>
+<h4>Comments:</h4>
 <% unless @comments.empty? %>
 <h4> Users Comments: </h4>
 <ul>

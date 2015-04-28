@@ -24,8 +24,10 @@ h1 {
 
 
 
-  <h1>Your dreams, made possible</h1>
-  <h4><%= User.count %> Members are tracking 1,134 Goals</h4>
+
+  <h1>Live Your Dreams</h1>
+  <h4><%= User.count %> Members are tracking over <%= Todo.count %> Goals</h4>
+
   <br>
   <% if !current_user %>
   <a href="/auth/guest_login"  class="btn btn-primary">Demo Login</a>
