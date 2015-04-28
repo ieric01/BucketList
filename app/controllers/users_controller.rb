@@ -9,8 +9,7 @@ class UsersController < ApplicationController
     @user_todos = user.todos
   end
 
-  def all_users
+  def index
     @all_users = User.all
-    render 'all_users'
   end
 end

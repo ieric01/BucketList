@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get "/todos/:todo_id/events", :to => 'events#list_events'
   resources :events
 
-  get "/users", :to => 'users#all_users'
+  get "/users", :to => 'users#index'
   get "/auth/facebook/callback", :to => 'sessions#create'
   get "/auth/guest_login", :to => 'sessions#guest_login'
   get "/signout", :to => 'sessions#destroy'
