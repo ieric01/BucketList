@@ -12,6 +12,7 @@ class TodosController < ApplicationController
   def search    
     @results = SearchSuggestion.results_objects(search_params[:name])
     # binding.pry
+    # binding.pry
     # fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
     # binding.pry
     # @results = fz.find_all(search_params)
