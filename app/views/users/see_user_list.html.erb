@@ -1,10 +1,15 @@
 <br><br><br>
 
+<h3><%= "#{current_user.name.titleize}'s Bucketlist:"%></h3>
+<br>
+
 <%= 'List is empty.' if @user_todos.empty?  %>
 
 <% @user_todos.each do |todo| %>
-  <%= link_to  todo.name, "/users_with_this_todo/#{todo.name}"  %>
+
+  <img src="<%= todo.image %>" height="90" width="90"><%= link_to  todo.name, "/users_with_this_todo/#{todo.id}"  %>
 
 <br>
 <% end %>
+<br><br>
 

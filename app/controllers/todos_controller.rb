@@ -27,14 +27,20 @@ class TodosController < ApplicationController
   
   def create
     #make sure that all fields in the create todoform are not empty and and error should arise"
-    new_todo = Todo.create(:name => params[:todo][:name], 
-                :description => params[:todo][:description], 
-                :new_image => params[:todo][:new_image]
-                )
-    UserTodo.create(:user_id => current_user.id, :todo_id => new_todo.id)
-    #Create the Todo object
-    #Associate the Todo object with
-    redirect_to "/mylist"
+    # binding.pry
+    if current_user.name == 'guest'
+      flash['alert'] = 'You cannot create as a guest user'
+      redirect_to "/"
+    else
+      new_todo = Todo.create(:name => params[:todo][:name], 
+                  :description => params[:todo][:description], 
+                  :new_image => params[:todo][:new_image]
+                  )
+      UserTodo.create(:user_id => current_user.id, :todo_id => new_todo.id)
+      #Create the Todo object
+      #Associate the Todo object with
+      redirect_to "/mylist"
+    end
   end
 
   def add_todo_to_user
@@ -87,7 +93,9 @@ class TodosController < ApplicationController
   end
 
   def users_with_this_todo
+    # binding.pry
     @todo = Todo.find(params['todo'])
+    # @todo = Todo.find(params['todo'])
     @comments = @todo.comments
     @users_with_todo = @todo.users
     @comment = Comment.new

@@ -7,6 +7,11 @@ class EventsController < ApplicationController
   end
 
   def create
+    if current_user.name == 'guest'
+      binding.pry
+      flash['alert'] = 'You cannot create as a guest user'
+      redirect_to "/"
+    else
     event = Event.create(:name => params['event']['name'], 
                  :location => params['event']['location'], 
                  :date => params['event']['date'], 
@@ -19,7 +24,7 @@ class EventsController < ApplicationController
     @events = Todo.find_by(:id => params['event']['todo_id']).events
 
     redirect_to "/todos/#{event.todo_id}/events"
-
+    end
   end
 
   def list_events
