@@ -4,14 +4,14 @@
  *= require search_suggestions
  *= require rails_bootstrap_forms
  *= require font-awesome
- *= require_tree ../../../vendor/assets/stylesheets/.
- *= require_tree .
  *= require_self
  *= require animate
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+ *= require_tree ../../../vendor/assets/stylesheets/.
+ *= require_tree .
  */
 
 .site_headline {

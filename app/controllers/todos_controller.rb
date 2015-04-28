@@ -84,6 +84,8 @@ class TodosController < ApplicationController
     flash[:last_page] = 'my list'
     @my_todos = current_user.todos
     @completed_todo_array = current_user.user_todos.select {|todo| todo if todo.finished}
+    @num_completed = current_user.user_todos.select {|todo| todo if todo.finished}.count
+    @num_incomplete = current_user.user_todos.select {|todo| todo if !todo.finished}.count
   end
 
   def users_with_this_todo

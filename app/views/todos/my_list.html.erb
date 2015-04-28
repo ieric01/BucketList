@@ -1,4 +1,62 @@
 <br>
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<script>
+
+var num_completed = <%= @num_completed %>;
+var num_incomplete = <%= @num_incomplete %>;
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: 'Todos',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 50
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white',
+                        textShadow: '0px 1px 2px black'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Todos',
+            innerSize: '50%',
+            data: [
+                ['Completed',   num_completed],
+                ['Incomplete',       num_incomplete]
+            ]
+        }]
+    });
+});
+
+
+
+</script>
 <div id="my_list">
 <p id='notice'>
    <%=flash[:notice]%>
@@ -50,6 +108,5 @@
 <br>
 <br>
 </div>
-
 
 
