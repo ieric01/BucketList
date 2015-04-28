@@ -1,10 +1,12 @@
 <br><br><br><br><br><br>
+
+<div class="user_datatable">
 <table class="table table-striped table-hover " id = "users">
 <thead>
   <tr>
-    <th>Pic</th>
-    <th>Name</th>
-    <th>Email</th>
+    <th>Picture</th>
+    <th>Name <i class="fa fa-arrows-v"></i></th>
+    <th>Email <i class="fa fa-arrows-v"></i></th>
 
   </tr>
 </thead>
@@ -22,32 +24,31 @@
 
   <% end %>
   </td>
-      <td><%= user.name.titleize if user.name%></td>
+  <td><%= (link_to  user.name.titleize, "/see_user_list/#{user.name}") if user.name  %></td>
       <td> <%= user.email %></td>
 
 
 
     </tr>
 
-<% end %>
+  <% end %>
+     </tbody>
+</table>
+</div>
+<br><br>
+<br><br>
 
 
 
-    <tr>
-      <td>2</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>    
-    </tbody>
-  </table> 
+
+<script>
 
 
 
-  <script>
+$('#users').DataTable({
 
-
-
-  $('#users').DataTable({
+      autoWidth: false,
+      pagingType: 'full_numbers',
+      iDisplayLength: 50
 });
-  </script>
+</script>
