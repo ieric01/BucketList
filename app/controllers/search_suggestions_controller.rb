@@ -1,4 +1,5 @@
 class SearchSuggestionsController < ApplicationController
+  
   def index
     results = SearchSuggestion.suggestions_scroll(search_params[:term])
     render :json => results

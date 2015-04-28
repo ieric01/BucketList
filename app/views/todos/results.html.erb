@@ -3,10 +3,15 @@
 <br><br>
 <br><br>
 
+
+
+
 <% if @results.empty? %>
-  this is the results.html page. <br>
+<%# if can? :create, @todo %>
+<%# if can? :create, @todo %>
      <h4> Create New Todo </h4>
    --------------------------
+
    <%= form_for @todo, :url => todos_path, :html => { :multipart => true } do |form| %>
    <%= form.label "name" %>
    <%= form.text_field :name, {:value => params['name'], :size => 60 }  %><br>
@@ -15,6 +20,7 @@
    <%= form.file_field :new_image %>  
    <%= form.submit "Create Todo" %>
    <% end %><br>
+   <%# end %>
  <% end %>
 
 

@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
 
   before_action :authorized_user
+  load_and_authorize_resource
 
   def authorized_user
     if current_user.nil?
@@ -27,6 +28,7 @@ class TodosController < ApplicationController
   
   def create
     #make sure that all fields in the create todoform are not empty and and error should arise"
+    
     new_todo = Todo.create(:name => params[:todo][:name], 
                 :description => params[:todo][:description], 
                 :new_image => params[:todo][:new_image]
@@ -35,6 +37,8 @@ class TodosController < ApplicationController
     #Create the Todo object
     #Associate the Todo object with
     redirect_to "/mylist"
+    authorize! :create, @todo
+    # authorize! :show, @project
   end
 
   def add_todo_to_user

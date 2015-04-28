@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+#Authorization and limiting guest actions 
+gem 'cancancan', '~> 1.10'
+
 gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 gem 'rest-client'
 gem 'jquery-ui-rails'
