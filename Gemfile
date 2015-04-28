@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'jquery-datatables-rails'
+gem 'slack-api'
 gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 gem 'rest-client'
 gem 'jquery-ui-rails'

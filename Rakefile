@@ -27,4 +27,17 @@ namespace :seed do
 		CouponParser.new.populate_travels
 
 	end
+
+	task :slack => :environment do
+    a = Slack.client
+    list = a.users_list
+    list['members'].each do |slack_user|
+    User.create(name: slack_user['real_name'], 
+                first_name: slack_user['profile']['first_name'], 
+                email: slack_user['profile']['email'],
+              user_img_url: slack_user['profile']['image_72'])
+    end
+   
+  end
+
 end

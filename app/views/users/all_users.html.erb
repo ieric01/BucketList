@@ -1,0 +1,36 @@
+<br><br><br><br>
+<table class="table table-striped table-hover ">
+
+  <tbody>
+
+<% @all_users.each do |user| %>
+  
+  <tr>
+  <td>
+  <% if !user.user_img_url.include? "https://secure.gravatar.com/avatar" %>
+    <img src=<%= user.user_img_url %> width="48">
+  <%else%>
+ <img src=<%="http://www.etceter.com/assets/43b442c6/no_avatar_available.jpg"
+ %> width="48">
+
+  <% end %>
+  </td>
+      <td><%= user.name.titleize if user.name%></td>
+      <td> <%= user.email %></td>
+
+
+
+    </tr>
+
+<% end %>
+
+
+
+    <tr>
+      <td>2</td>
+      <td>Column content</td>
+      <td>Column content</td>
+      <td>Column content</td>
+    </tr>    
+    </tbody>
+</table> 
