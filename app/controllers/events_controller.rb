@@ -8,7 +8,6 @@ class EventsController < ApplicationController
 
   def create
     if current_user.name == 'guest'
-      binding.pry
       flash['alert'] = 'You cannot create as a guest user'
       redirect_to "/"
     else
