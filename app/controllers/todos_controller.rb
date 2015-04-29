@@ -58,27 +58,34 @@ class TodosController < ApplicationController
       return redirect_to '/' 
     end
 
-   if flash[:message]
+   #  if flash[:last_page] == 'results'
+   #    # binding.pry
+   #    UserTodo.find_by(:user_id => current_user.id,
+   #                   :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
+   #    redirect_to '/'
+   #  end
 
-     @results = flash[:message]
-     flash[:message] = @results 
-     arr = [] 
+   #  if flash[:message]
+   #   @results = flash[:message]
+   #   flash[:message] = @results 
+   #   arr = [] 
 
-     @results.each do |result|
-       arr << Todo.find_by(:name => result['name'])
-     end
+   #   @results.each do |result|
+   #     arr << Todo.find_by(:name => result['name'])
+   #   end
 
-     @results = arr
-     UserTodo.find_by(:user_id => current_user.id,
-                      :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
-     render 'results'
-   end
+   #   @results = arr
+   #   UserTodo.find_by(:user_id => current_user.id,
+   #                    :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
+   #   render 'results'
+   # end
 
-    if flash[:last_page] == 'my list'
+
+   #  if flash[:last_page] == 'my list'
     UserTodo.find_by(:user_id => current_user.id,
                      :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
       redirect_to :back  
-    end
+    # end
   end
 
   def complete_todo
