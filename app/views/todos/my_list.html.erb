@@ -74,7 +74,6 @@ $(function () {
 <% @my_todos.each do |todo| %>
   <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
     <% if todo.image != nil %>
-      binding.pry
       <div id="list_image"><a href="/todos/<%= todo.id %>">
           
           <div id="image_tag"><img src="<%= todo.image %>" height="135" ></a></div>
