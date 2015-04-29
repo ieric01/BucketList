@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
 
   get "/todos/:todo_id/events", :to => 'events#list_events'
+  post "/events" => 'events#create'
+  # post '/' => 'todos#search'
   resources :events
 
   get "/users", :to => 'users#index'
