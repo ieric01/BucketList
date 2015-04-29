@@ -8,7 +8,7 @@ class Todo < ActiveRecord::Base
   has_many :travel_deals, through: :travels_todos
 
     #Paperclip gem to upload image
-  has_attached_file :new_image, :styles => { :medium => "50x50>"}, :default_url => "/images/:style/missing.png"
+  has_attached_file :new_image, :styles => { :medium => "50x50>"}, :default_url => "http://4.bp.blogspot.com/-cQ7tZ56cvfU/ThSFJgw32pI/AAAAAAAAABU/sYFMkdGNaC8/s1600/todo-manager-icon.png"
   # validates_attachment_content_type :new_image, :content_type => /\Aimage\/.*\Z/
   validates_attachment :new_image,
   :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}
