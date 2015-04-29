@@ -1,6 +1,6 @@
 <br><br><br>
-
-<h3><%= "#{current_user.name.titleize}'s Bucketlist:"%></h3>
+<img src="<%= User.find(params["name"]).user_img_url %>">
+<h3><%= "#{User.find(params["name"]).name.titleize}'s Bucketlist:"%></h3>
 <br>
 
 <%= 'List is empty.' if @user_todos.empty?  %>

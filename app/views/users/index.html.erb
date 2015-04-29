@@ -6,7 +6,7 @@
   <tr>
     <th>Picture</th>
     <th>Name <i class="fa fa-arrows-v"></i></th>
-    <th>Email <i class="fa fa-arrows-v"></i></th>
+    <th>Bucketlist <i class="fa fa-arrows-v"></i></th>
 
   </tr>
 </thead>
@@ -24,8 +24,17 @@
 
   <% end %>
   </td>
-  <td><%= (link_to  user.name.titleize, "/see_user_list/#{user.name}") if user.name  %></td>
-      <td> <%= user.email %></td>
+  <td><%= (link_to  user.name.titleize, "/see_user_list/#{user.id}") if user.name  %></td>
+      <td>
+      
+       <% user.todos.each_with_index do |todo, i| %>
+       <% break if i == 9 %>
+        <a href="/todos/<%= todo.id %>"><img src="<%= todo.check_fo_image %>" height="40" width="45"></a>
+       <% end %>
+       <% if user.todos.length > 9 %>
+       <a href=<%= "/see_user_list/#{user.id}" %>><i class="fa fa-ellipsis-h fa-2x"></i></a>
+       <% end %>
+      </td>
 
 
 
