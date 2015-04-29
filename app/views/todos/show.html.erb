@@ -2,12 +2,12 @@
 <br>
 <br>
 <br>
-
+<div id='show_page'>
 <h1><%= @todo.name %></h1><br>
 <% unless @todo.image  %>
     <a href="/todos/<%= @todo.id %>"><%= image_tag @todo.new_image, size: "250x250" %></a>
   <% else %>
-		<a href="/todos/<%= @todo.id %>"><img src="<%= @todo.image %>" ></a><br>
+    <a href="/todos/<%= @todo.id %>"><div id='image_tag'><img src="<%= @todo.image %>" ></div></a><br>
   <% end %>
 	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: </a>[<%= @todo.events.count %>]<br>
 <% if current_user.todos.include? Todo.find_by(:name => @todo.name) %>
@@ -36,6 +36,7 @@
 <% unless current_user.name == "guest" %>
 	<%= render 'partials/comment_form' %>
 <% end %>
+  </div>
 <br>
 <br>
 <br>
