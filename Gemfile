@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'lazy_high_charts'
 gem 'jquery-datatables-rails', '~> 3.2.0'
 gem 'slack-api'
 gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'

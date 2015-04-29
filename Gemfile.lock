@@ -141,6 +141,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hash-deep-merge (0.1.1)
     hashie (3.4.1)
     hirb (0.7.3)
     hitimes (1.2.2)
@@ -174,6 +175,9 @@ GEM
       railties (>= 3.2.16)
     json (1.8.2)
     jwt (1.4.1)
+    lazy_high_charts (1.5.4)
+      bundler (>= 1.0)
+      hash-deep-merge
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -389,6 +393,7 @@ DEPENDENCIES
   jquery-datatables-rails (~> 3.2.0)
   jquery-rails
   jquery-ui-rails
+  lazy_high_charts
   mailboxer!
   nokogiri
   omniauth
