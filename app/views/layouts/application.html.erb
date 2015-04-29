@@ -35,11 +35,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Bucketlist<span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="/users">Users<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/"><i class="fa fa-bitbucket fa-2x"></i> Bucketlist<span class="sr-only">(current)</span></a></li>
+        <li class="active">
+        <a href="/users"><i class="fa fa-users fa-2x"></i><span class="sr-only">(current)</span></a>
+        </li>
         <% if current_user && current_user.name != "guest" %>
                 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Message [<%= current_user ? unread_messages_count : 0 %>] <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-envelope fa-2x"></i> [<%= current_user ? unread_messages_count : 0 %>] <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/conversations/new">New Message</a></li>
             <li><a href="/mailbox/inbox">Mailbox</a></li>
@@ -52,7 +54,11 @@
 
   <% if current_user %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "My List", "/mylist" %></li>
+        <li>
+        <%= link_to "/mylist" do %>
+          <i class="fa fa-list-alt fa-2x"></i> 
+        <% end %>
+        </li>
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%="#{current_user.first_name} " %><img src="<%= current_user.user_img_url%>" height="25"><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -66,7 +72,7 @@
       <ul class="nav navbar-nav navbar-right">
 
 <li>        <%= link_to "/auth/facebook" do %>
-                Login with <%= fa_icon 'facebook-official' %>
+              <i class="fa fa-facebook-square fa-2x"></i>
             <% end %></li>
 
         </li>
