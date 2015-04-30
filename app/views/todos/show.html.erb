@@ -11,9 +11,9 @@
   <% end %>
 	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: </a>[<%= @todo.events.count %>]<br>
 <% if current_user.todos.include? Todo.find_by(:name => @todo.name) %>
-    <%= link_to 'Delete from list', "/delete_from_list/#{@todo.name}"  %>
+    <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{@todo.name}"  %>
 <% else %>
-    <%= link_to 'Add to list', "/add_to_list/#{@todo.name}"  %>
+    <%= link_to '<button type="button">Add to list</button>'.html_safe, "/add_to_list/#{@todo.name}"  %>
 <% end %>
   <h4>Users With This Event In Their Bucklist: &nbsp; <a href="/users_with_this_todo/<%= @todo.id %>"><%= @todo.users.count %></a></h4>
 <% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
@@ -29,7 +29,7 @@
 <h4> Users Comments: </h4>
 <ul>
 	<%  @comments.each do |comment| %>
-		<li><h5><img src="<%=comment.user.user_img_url %>" style="padding-right: 15px" height="50" width="65"><%= "#{comment.user.first_name}: '#{comment.content}'" %></h5></li>
+		<li><h5><img src="<%= comment.user.user_img_url %>" style="padding-right: 15px" height="50" width="65"><%= "#{comment.user.first_name}: '#{comment.content}'" %></h5></li>
 	<% end %>
 	</ul>
 <% end %>
