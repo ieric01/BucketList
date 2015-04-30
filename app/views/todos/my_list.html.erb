@@ -5,12 +5,12 @@
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
-
 <script>
 
 var num_completed = <%= @num_completed %>;
 var num_incomplete = <%= @num_incomplete %>;
 
+// Pie Chart JS -------------------------------------------
 $(function () {
     $('#container').highcharts({
         chart: {
@@ -56,55 +56,61 @@ $(function () {
         }]
     });
 });
-
-
-
+// END OF PIE CHART CODE-------------------------------------
 </script>
+
 <div id="my_list">
-<p id='notice'>
-   <%=flash[:notice]%>
-   </p>
+  <p id='notice'>
+  <%=flash[:notice]%>
+  </p>
+  <%=  flash[:notice] %><br><br>
+  <%= 'No items have been added to your list' if @my_todos.empty?%>
+   <br>
 
-<%=  flash[:notice] %><br><br>
-<%= 'No items have been added to your list' if @my_todos.empty?  %>
-<br>
-<h2>INCOMPLETE</h2>
-<br><br>
 
-<% @my_todos.each do |todo| %>
-    <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
-        <div id="list_image"><a href="/todos/<%= todo.id %>">
-            <div id="image_tag"><img src="<%= todo.check_fo_image %>" height="135" ></a></div>
-    <%= todo.name %><br> 
-    <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
-    <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
-    </div>
-  <% end %>
+  <hr>
+  <h2>INCOMPLETE</h2>
+  <br><br>
+
+  <div class="container">
+   <div class="row">
+    <% @my_todos.each do |todo| %>
+      <div class="col-md-3">
+        <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
+          <div id="image_tag"<%=link_to(image_tag(todo.check_fo_image, size: "135x135"), todo) %></div>
+          <%= todo.name %><br> 
+          <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
+          <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
+       <% end %>
+      </div> <!-- div end for col -->
+      <% end %>
+    </div> <!-- div end for row -->
+  </div> <!-- div end for container -->
+    
   <br>
-<% end %>
 
 
-<hr>
+ <hr>
 
 <h2>COMPLETED</h2>
 <br><br>
+</div> <!--- end of mylist container affect h2 -->
 
-<% @completed_todo_array.each do |user_todo| %>
-  <% if Todo.find(user_todo.todo_id).image %>
-    <div id="completed_list_image"><a href="/todos/<%= Todo.find(user_todo.todo_id).id %>">
-        <div id="completed_image_tag"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="135"></a></div>
-  <% else %>
-    <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
+<div class="container">
+ <div class="row">
+  <% @completed_todo_array.each do |user_todo| %>
+    <div class="col-md-3">
+      <% if Todo.find(user_todo.todo_id).image %>
+        <a href="/todos/<%=Todo.find(user_todo.todo_id).id %>"><div id="completed_image_tag"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="135"></a></div>
+      <% else %>
+        <a href="/todos/<%= Todo.find(user_todo.todo_id).id%>"><div id="completed_image_tag"><%=image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
+      <% end %>
+        <%= Todo.find(user_todo.todo_id).name %> 
+        <%= link_to 'Delete from list', "/delete_from_list/#{Todo.find(user_todo.todo_id).name}" %>
+    </div> <!-- div end for col -->
   <% end %>
-    <%= Todo.find(user_todo.todo_id).name %> <%= link_to 'Delete from list', "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %>
-<br>
-<% end %>
-
-<br>
-<br>
-<br>
-
-
-</div>
-
-
+  </div> <!-- div end for row -->
+</div> <!-- div end for container -->
+  <br>
+  <br>
+  <br>
