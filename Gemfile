@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem "typedjs-rails", "~> 1.0.2"
 gem 'lazy_high_charts'
 gem 'jquery-datatables-rails', '~> 3.2.0'
 gem 'slack-api'
