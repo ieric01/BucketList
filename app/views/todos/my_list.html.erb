@@ -67,27 +67,47 @@ $(function () {
 <%= 'No items have been added to your list' if @my_todos.empty?  %>
 <br>
 <h2>INCOMPLETE</h2>
-<br><br>
 
-<% @my_todos.each do |todo| %>
-  <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
-    <% if todo.image != nil %>
-      <div id="list_image"><a href="/todos/<%= todo.id %>">
 
+
+
+
+
+
+    <div id="genres" class="table-responsive col-xs-12">
+      <table class="table">
+        <tbody>
+          <% @my_todos.in_groups_of(5) do |todo_arr| %>
+            <tr>
+              <% todo_arr.compact.each do |todo|%>
+                <td>
           <div id="image_tag"><img src="<%= todo.image %>" height="135" ></a></div>
-
-    <% else %>
-      <a href="/todos/<%= todo.id %>"><div id="image_tag"><%= image_tag todo.new_image, size: "135x135" %></div></a>
-
-
-    <% end %>
-  <%= todo.name %><br>
+                <%= todo.name %><br>
   <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
   <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
-  </div>
+</td>
 <% end %>
-<br>
-<% end %>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <hr>

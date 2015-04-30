@@ -19,7 +19,7 @@
   bottom: 100;
   margin-top: 100px;
   width: 100%;
-  height: 70px; 
+  height: 70px;
   color: #000;
   text-align: center;
 }
@@ -28,7 +28,7 @@
   color: #099666;  /*Sets the text hover color on navbar*/
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
   a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: white; /*BACKGROUND color for active*/
   background-color: #006666;
@@ -61,7 +61,7 @@
 
 .fa-facebook-official{
   font-size: 15px;
-  margin-left: 3px; 
+  margin-left: 3px;
 }
 
 .alert {
@@ -93,7 +93,7 @@
     border: 1px solid #000000;
   bottom: 0;
   width: 100%;
-  height: 58px; 
+  height: 58px;
   color: #fff;
   text-align: center;
   overflow-y: auto;
@@ -102,7 +102,7 @@
 .container .text-muted a,
 .container .text-muted {
   margin: 15px 0;
-  
+
   color: #e7e7e7;
   text-decoration: none;
 }
@@ -157,11 +157,11 @@ ul.ui-autocomplete {
   display: none;
 }
 
-.site_headline>a { 
+.site_headline>a {
     background-color: #C77D28;
 }
 
-.site_headline>a:hover { 
+.site_headline>a:hover {
     background-color: #187b20;
 }
 
@@ -175,6 +175,11 @@ border-radius: 18px;
 box-shadow: 3px 3px 20px #888888;
 }
 
+#image_tag_nav img{
+border-radius: 4px;
+border: 1px solid #888888;
+box-shadow: 3px 3px 20px #888888;
+}
 
 #completed_list_image {
 margin-left: 40px;
@@ -220,3 +225,23 @@ margin-left: 20%;
 #red {
 color: red;
 }
+
+
+.field input {
+    color: #000;
+    font-size: 14px;
+    padding: 20px;
+    border: 1px solid #000000;
+
+    outline: none;
+    border-color: #28C734;
+    box-shadow: 0 0 6px #9ecaed;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: #28C734;
+    box-shadow: 0 0 12px #28C734;
+}
+
+

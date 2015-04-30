@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <div id='background_img'>
   <%#<body STYLE="background-image: url(c4.jpg)" width= 20%, height= 15px>text</body>%>
 </div>
@@ -7,7 +14,7 @@
 @-webkit-keyframes typing { from { width: 0; } }
 @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
 
-h1 { 
+h1 {
       text-align: center;
 	font: bold 200% Consolas, Monaco, monospace;
 	border-right: .1em solid;
@@ -18,7 +25,7 @@ h1 {
 	overflow: hidden;
 	-webkit-animation: typing 3s steps(30, end), /* # of steps = # of chars */
 	           underscore .5s step-end infinite alternate;
-}  
+}
   </style>
 
 
@@ -39,7 +46,7 @@ h1 {
 
 <div class="container">
   <div class="row">
-    
+
     <div id="content" class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       <%= form_tag("/search", :method => "get", :enforce_utf8 => false) do %>
         <div class="field">
