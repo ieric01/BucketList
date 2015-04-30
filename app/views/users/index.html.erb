@@ -16,22 +16,24 @@
   
   <tr>
   <td>
-    
   <% if !user.user_img_url.include? "https://secure.gravatar.com/avatar" %>
     <img src=<%= user.user_img_url %> width="48">
   <%else%>
- <img src=<%="http://www.etceter.com/assets/43b442c6/no_avatar_available.jpg"
- %> width="48">
-
+     <img src=<%="http://www.etceter.com/assets/43b442c6/no_avatar_available.jpg"
+     %> width="48">
   <% end %>
   </td>
+
   <td><%= (link_to  user.name.titleize, "/see_user_list/#{user.id}") if user.name  %></td>
       <td>
       
        <% user.todos.each_with_index do |todo, i| %>
-       <% break if i == 9 %>
-        <a href="/todos/<%= todo.id %>"><img src="<%= todo.check_fo_image %>" height="40" width="45"></a>
-       <% end %>
+         <% break if i == 9 %>
+        
+            <a href="/todos/<%= todo.id %>"><img src="<%= todo.check_fo_image %>" height="40" width="45"></a>
+            
+        <% end %>
+
        <% if user.todos.length > 9 %>
        <a href=<%= "/see_user_list/#{user.id}" %>><i class="fa fa-ellipsis-h fa-2x"></i></a>
        <% end %>
@@ -48,17 +50,11 @@
 <br><br>
 <br><br>
 
-
-
-
 <script>
 
-
-
-$('#users').DataTable({
-
-      autoWidth: false,
-      pagingType: 'full_numbers',
-      iDisplayLength: 50
-});
+  $('#users').DataTable({
+        autoWidth: false,
+        pagingType: 'full_numbers',
+        iDisplayLength: 50
+  });
 </script>

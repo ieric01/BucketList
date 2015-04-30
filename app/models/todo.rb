@@ -13,15 +13,9 @@ class Todo < ActiveRecord::Base
   validates_attachment :new_image,
   :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"]}
 
-
   def check_fo_image
-    if self.image
-      return self.image
-    elsif self.new_image_file_name
-      return self.new_image_file_name
-    else
-      return "http://www.etceter.com/assets/43b442c6/no_avatar_available.jpg"
-    end
+    self.image ? self.image : self.new_image
   end
   
+
 end

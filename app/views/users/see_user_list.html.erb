@@ -7,9 +7,9 @@
 
 <% @user_todos.each do |todo| %>
 
-  <img src="<%= todo.image %>" height="90" width="90"><%= link_to  todo.name, "/users_with_this_todo/#{todo.id}"  %>
+  <img src="<%= todo.check_fo_image %>" height="90" width="90"><%= link_to  todo.name, "/users_with_this_todo/#{todo.id}"  %>
 
-<br>
+<br><br><br>
 <% end %>
 <br><br>
 
