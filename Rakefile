@@ -60,4 +60,13 @@ namespace :seed do
 		end
 	end
 
+
+	task :give_gmailers_todos => :environment do
+		dummie_users = User.where('email ~* :pat', :pat => '^.+@gmail.com$')
+		dummie_users.each do |slack_user|
+			slack_user.todos << Todo.all.sample(rand(4..20))
+			slack_user.todos.uniq!{|todo| todo.id }   
+		end
+	end
+
 end

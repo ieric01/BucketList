@@ -22,6 +22,7 @@
 <% else %>
 	<h4>Users With This in Their Bucklist:</h4>
 	<% @users_with_todo.each do |user| %>
-	  <img src="<%= user.user_img_url %>" height="45" width="60"> <%= link_to  user.name, "/see_user_list/#{user.id}"  %><br>
+	  <img src="<%= user.user_img_url %>" height="45" width="60"> <%= link_to  user.name, "/see_user_list/#{user.id}"  %><br><br>
 	<% end %>
 <% end %>
+<br><br><br>
