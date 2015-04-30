@@ -61,54 +61,54 @@ $(function () {
 
 </script>
 <div id="my_list">
-<p id='notice'>
-   <%=flash[:notice]%>
-   </p>
+  <p id='notice'>
+     <%=flash[:notice]%>
+     </p>
 
-<%=  flash[:notice] %><br><br>
-<%= 'No items have been added to your list' if @my_todos.empty?  %>
-<br>
-<h2>INCOMPLETE</h2>
-<br><br>
+  <%=  flash[:notice] %><br><br>
+  <%= 'No items have been added to your list' if @my_todos.empty?  %>
+  <br>
+  <hr>
+  <h2>INCOMPLETE</h2>
+  <br><br>
 
-<% @my_todos.each do |todo| %>
-  <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
-    <% if todo.image != nil %>
-      <div id="list_image"><a href="/todos/<%= todo.id %>">
-          
-          <div id="image_tag"><img src="<%= todo.image %>" height="135" ></a></div>
+  <% @my_todos.each do |todo| %>
+    <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
+      <% if todo.image != nil %>
+        <div id="list_image"><a href="/todos/<%= todo.id %>"></a></div>
+            
+            <div id="image_tag"><img src="<%= todo.image %>" height="135" ></a></div>
 
-    <% else %>
-      <a href="/todos/<%= todo.id %>"><div id="image_tag"><%= image_tag todo.new_image, size: "135x135" %></div></a>
-
-
-    <% end %>
-  <%= todo.name %><br> 
-  <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.name}"  %><br>
-  <%= link_to '<button type="button">Move to Completed</button>'.html_safe, "/complete_todo/#{todo.id}" %>
-  </div>
-<% end %>
-<br>
-<% end %>
+      <% else %>
+        <a href="/todos/<%= todo.id %>"><div id="image_tag"><%= image_tag todo.new_image, size: "135x135" %></div></a>
 
 
-<hr>
-
-<h2>COMPLETED</h2>
-<br><br>
-
-<% @completed_todo_array.each do |user_todo| %>
-  <% if Todo.find(user_todo.todo_id).image %>
-    <div id="completed_list_image"><a href="/todos/<%= Todo.find(user_todo.todo_id).id %>">
-        <div id="completed_image_tag"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="135"></a></div>
-  <% else %>
-    <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
+      <% end %>
+    <%= todo.name %><br> 
+    <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.name}"  %><br>
+    <%= link_to '<button type="button">Move to Completed</button>'.html_safe, "/complete_todo/#{todo.id}" %>
+   
   <% end %>
-    <%= Todo.find(user_todo.todo_id).name %><br> 
-    <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %><br>
-<br>
-<% end %>
+  <br>
+  <% end %>
 
+
+  <hr>
+
+  <h2>COMPLETED</h2>
+  <br><br>
+
+  <% @completed_todo_array.each do |user_todo| %>
+    <% if Todo.find(user_todo.todo_id).image %>
+      <div id="completed_list_image"><a href="/todos/<%= Todo.find(user_todo.todo_id).id %>">
+          <div id="completed_image_tag"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="135"></a></div>
+    <% else %>
+      <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
+    <% end %>
+      <%= Todo.find(user_todo.todo_id).name %><br> 
+      <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %><br>
+  <br>
+  <% end %>
 <br>
 <br>
 <br>
