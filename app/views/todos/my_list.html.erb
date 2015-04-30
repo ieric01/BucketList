@@ -90,7 +90,7 @@ $(function () {
         <% else %>
           <a href="/todos/<%= todo.id %>"><div id="completed_image_tag"><%= image_tag todo.new_image, size: "135x135" %></div></a>
         <% end %>
-        <%= todo.name %><br> 
+        <%= todo.name %><br>
         <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.name}"  %><br>
         <%= link_to '<button type="button">Move to Completed</button>'.html_safe, "/complete_todo/#{todo.id}" %>
     <!--   <%# else %>
@@ -98,12 +98,11 @@ $(function () {
 
       <% end %>
       <!-- <p>im here</p>
-      <p>hello there!</p>  --> 
+      <p>hello there!</p>  -->
       </div>   <!-- div end for col -->
     <% end %>
   <!-- </div> --> <!-- div end for row-->
-<!-- </div>  --><!--div end for container --> 
- <hr>
+<!-- </div>  --><!--div end for container -->
 
 <div class="row"></div>
 
