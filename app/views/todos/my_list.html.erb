@@ -61,9 +61,15 @@ $(function () {
 
 </script>
 <div id="my_list">
-<p id='notice'>
-   <%=flash[:notice]%>
-   </p>
+  <p id='notice'>
+     <%=flash[:notice]%>
+     </p>
+
+  <%=  flash[:notice] %><br><br>
+  <%= 'No items have been added to your list' if @my_todos.empty?  %>
+  <br>
+  <hr>
+
 
 <%=  flash[:notice] %><br><br>
 <%= 'No items have been added to your list' if @my_todos.empty?  %>
@@ -108,6 +114,7 @@ $(function () {
     <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %><br>
 <br>
 <% end %>
+
 
 <br>
 <br>
