@@ -4,24 +4,24 @@ class TodosController < ApplicationController
 
   def authorized_user
     if current_user.nil?
-      redirect_to "/auth/facebook", notice: "log in first" 
+      redirect_to "/auth/facebook", notice: "log in first"
     end
   end
 
-  def search    
+  def search
     @results = SearchSuggestion.results_objects(search_params[:name])
     @todo = Todo.new
     render 'results'
   end
 
-  
+
   def create
     if current_user.name == 'guest'
       flash['alert'] = 'You cannot create as a guest user'
       redirect_to "/"
     else
-      new_todo = Todo.create(:name => params[:todo][:name], 
-                  :description => params[:todo][:description], 
+      new_todo = Todo.create(:name => params[:todo][:name],
+                  :description => params[:todo][:description],
                   :new_image => params[:todo][:new_image]
                   )
       UserTodo.create(:user_id => current_user.id, :todo_id => new_todo.id)
@@ -40,12 +40,12 @@ class TodosController < ApplicationController
 
   def delete_todo_from_user
     if !(current_user.todos.include? Todo.find_by(:name => params['todo']))
-      return redirect_to '/' 
+      return redirect_to '/'
     end
 
     UserTodo.find_by(:user_id => current_user.id,
                      :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
-      redirect_to :back  
+      redirect_to :back
   end
 
   def complete_todo

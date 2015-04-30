@@ -1,6 +1,6 @@
 Rails.application.configure do
   GA.tracker = Rails.application.secrets.google_analytics_code
-
+config.assets.precompile += ['rollover.js', 'highcharts.js']
    config.force_ssl = true
   # Settings specified here will take precedence over those in config/application.rb.
 
