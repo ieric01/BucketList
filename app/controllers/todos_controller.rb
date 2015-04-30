@@ -8,27 +8,14 @@ class TodosController < ApplicationController
     end
   end
 
-
   def search    
     @results = SearchSuggestion.results_objects(search_params[:name])
-    # binding.pry
-    # binding.pry
-    # fz = FuzzyMatch.new(Todo.all, :read => search_params[:name])
-    # binding.pry
-    # @results = fz.find_all(search_params)
-    # binding.pry
-    # @results = search_params[:name]
-    # flash[:message] = @results
-    #Here I created an instance variable todo for the form helper
     @todo = Todo.new
-    # flash[:message] = @results
     render 'results'
   end
 
   
   def create
-    #make sure that all fields in the create todoform are not empty and and error should arise"
-    # binding.pry
     if current_user.name == 'guest'
       flash['alert'] = 'You cannot create as a guest user'
       redirect_to "/"
@@ -38,8 +25,6 @@ class TodosController < ApplicationController
                   :new_image => params[:todo][:new_image]
                   )
       UserTodo.create(:user_id => current_user.id, :todo_id => new_todo.id)
-      #Create the Todo object
-      #Associate the Todo object with
       redirect_to "/mylist"
     end
   end
@@ -58,34 +43,9 @@ class TodosController < ApplicationController
       return redirect_to '/' 
     end
 
-   #  if flash[:last_page] == 'results'
-   #    # binding.pry
-   #    UserTodo.find_by(:user_id => current_user.id,
-   #                   :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
-   #    redirect_to '/'
-   #  end
-
-   #  if flash[:message]
-   #   @results = flash[:message]
-   #   flash[:message] = @results 
-   #   arr = [] 
-
-   #   @results.each do |result|
-   #     arr << Todo.find_by(:name => result['name'])
-   #   end
-
-   #   @results = arr
-   #   UserTodo.find_by(:user_id => current_user.id,
-   #                    :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
-   #   render 'results'
-   # end
-
-
-   #  if flash[:last_page] == 'my list'
     UserTodo.find_by(:user_id => current_user.id,
                      :todo_id =>  Todo.find_by(:name => params['todo']).id).destroy
       redirect_to :back  
-    # end
   end
 
   def complete_todo
@@ -102,52 +62,10 @@ class TodosController < ApplicationController
     @num_incomplete = current_user.user_todos.select {|todo| todo if !todo.finished}.count
 
 
-
-      @chart3 = LazyHighCharts::HighChart.new('pie') do |f|
-          f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
-          series = {
-                   :type=> 'pie',
-                   :name=> 'Browser share',
-                   :data=> [
-                      ['Firefox',   45.0],
-                      ['IE',       26.8],
-                      {
-                         :name=> 'Chrome',    
-                         :y=> 12.8,
-                         :sliced=> true,
-                         :selected=> true
-                      },
-                      ['Safari',    8.5],
-                      ['Opera',     6.2],
-                      ['Others',   0.7]
-                   ]
-          }
-          f.series(series)
-          f.options[:title][:text] = "THA PIE"
-          f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-          f.plot_options(:pie=>{
-            :allowPointSelect=>true, 
-            :cursor=>"pointer" , 
-            :dataLabels=>{
-              :enabled=>true,
-              :color=>"black",
-              :style=>{
-                :font=>"13px Trebuchet MS, Verdana, sans-serif"
-              }
-            }
-          })
-    end
-
-
-
-
-
   end
 
   def users_with_this_todo
-    # binding.pry
     @todo = Todo.find(params['todo'])
-    # @todo = Todo.find(params['todo'])
     @comments = @todo.comments
     @users_with_todo = @todo.users
     @comment = Comment.new

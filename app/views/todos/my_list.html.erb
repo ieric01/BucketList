@@ -105,7 +105,7 @@ $(function () {
     <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
   <% end %>
     <%= Todo.find(user_todo.todo_id).name %><br> 
-    <div class="button"><%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %></div><br>
+    <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %><br>
 <br>
 <% end %>
 
