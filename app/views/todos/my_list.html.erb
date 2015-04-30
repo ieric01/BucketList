@@ -84,8 +84,8 @@ $(function () {
 
     <% end %>
   <%= todo.name %><br> 
-  <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
-  <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
+  <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.name}"  %><br>
+  <%= link_to '<button type="button">Move to Completed</button>'.html_safe, "/complete_todo/#{todo.id}" %>
   </div>
 <% end %>
 <br>
@@ -104,7 +104,8 @@ $(function () {
   <% else %>
     <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
   <% end %>
-    <%= Todo.find(user_todo.todo_id).name %> <%= link_to 'Delete from list', "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %>
+    <%= Todo.find(user_todo.todo_id).name %><br> 
+    <div class="button"><%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %></div><br>
 <br>
 <% end %>
 
@@ -113,10 +114,7 @@ $(function () {
 <br>
 
 
-<%= high_chart("my_id3", @chart3) do |c| %>
-      <%= raw "options.tooltip.formatter = function() {return '<b> YUPI!! '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-      <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-  <% end %>
+
 
 
 </div>
