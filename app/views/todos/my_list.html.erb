@@ -72,20 +72,15 @@ $(function () {
 <br><br>
 
 <% @my_todos.each do |todo| %>
-  <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
-    <% if todo.image != nil %>
-      <div id="list_image"><a href="/todos/<%= todo.id %>">
-          <div id="image_tag"><img src="<%= todo.image %>" height="135" ></a></div>
-    <% else %>
-      <div id="list_image">
-        <a href="/todos/<%= todo.id %>"><div id="image_tag"><%= image_tag todo.new_image, size: "135x135" %></a></div>
-    <% end %>
-  <%= todo.name %><br> 
-  <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
-  <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
-  </div>
-<% end %>
-<br>
+    <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
+        <div id="list_image"><a href="/todos/<%= todo.id %>">
+            <div id="image_tag"><img src="<%= todo.check_fo_image %>" height="135" ></a></div>
+    <%= todo.name %><br> 
+    <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
+    <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
+    </div>
+  <% end %>
+  <br>
 <% end %>
 
 
