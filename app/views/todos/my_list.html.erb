@@ -4,6 +4,8 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+
 <script>
 
 var num_completed = <%= @num_completed %>;
@@ -68,46 +70,26 @@ $(function () {
 <br>
 <h2>INCOMPLETE</h2>
 
-
-
-
-
-
-
     <div id="genres" class="table-responsive col-xs-12">
       <table class="table">
         <tbody>
-          <% @my_todos.in_groups_of(5) do |todo_arr| %>
+          <% @my_todos.in_groups_of(3) do |todo_arr| %>
             <tr>
               <% todo_arr.compact.each do |todo|%>
                 <td>
-          <div id="image_tag"><img src="<%= todo.image %>" height="135" ></a></div>
-                <%= todo.name %><br>
-  <%= link_to 'Delete from list', "/delete_from_list/#{todo.name}"  %><br>
-  <%= link_to 'Move to Completed', "/complete_todo/#{todo.id}" %>
+      <div id="list_image"><a href="/todos/<%= todo.id %>">
+          <div id="image_tag"><img src="<%= todo.todo.image %>" height="135" ></a></div>
+  <%= todo.todo.name %><br>
+  <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.todo.name}"  %><br>
+  <%= link_to '<button type="button">Move to Completed</button>'.html_safe, "/complete_todo/#{todo.todo.id}" %>
 </td>
+
 <% end %>
           </tr>
         <% end %>
         </tbody>
       </table>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <hr>
@@ -122,13 +104,17 @@ $(function () {
   <% else %>
     <a href="/todos/<%= Todo.find(user_todo.todo_id).id %>"><%= image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
   <% end %>
-    <%= Todo.find(user_todo.todo_id).name %> <%= link_to 'Delete from list', "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %>
+    <%= Todo.find(user_todo.todo_id).name %><br>
+    <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}"  %><br>
 <br>
 <% end %>
 
 <br>
 <br>
 <br>
+
+
+
 
 
 </div>
