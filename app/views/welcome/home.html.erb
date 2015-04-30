@@ -29,7 +29,16 @@ h1 {
   </style>
 
 
+<script>
+    $(function(){
+        $(".element").typed({
+            // Waits 1000ms after typing "First"
+            strings: ["First ^1000 sentence.", "Second sentence."]
+        });
+    });
+</script>
 
+<span class="element"></span>
 
   <h1>Live Your Dreams</h1>
   <h4><%= User.count %> Members are tracking over <%= Todo.count %> Goals</h4>
