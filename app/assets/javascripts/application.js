@@ -16,6 +16,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap
+//= require highcharts
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 //
