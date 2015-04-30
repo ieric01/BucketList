@@ -10,37 +10,21 @@
 </div>
 <div class="site_headline">
 
-  <style>
-@-webkit-keyframes typing { from { width: 0; } }
-@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
 
-h1 {
-      text-align: center;
-	font: bold 200% Consolas, Monaco, monospace;
-	border-right: .1em solid;
-	width: 16.5em; /* fallback */
-	width: 30ch; /* # of chars */
-  margin-left: 29%;
-	white-space: nowrap;
-	overflow: hidden;
-	-webkit-animation: typing 3s steps(30, end), /* # of steps = # of chars */
-	           underscore .5s step-end infinite alternate;
-}
-  </style>
 
 
 <script>
     $(function(){
         $(".element").typed({
             // Waits 1000ms after typing "First"
-            strings: ["First ^1000 sentence.", "Second sentence."]
+            strings: ["Don't just live your life.^500", "Live your dreams^50000", "Else die alone.^5000"]
         });
     });
 </script>
 
-<span class="element"></span>
+<h1><span class="element"></span><h1>
 
-  <h1>Live Your Dreams</h1>
+
   <h4><%= User.count %> Members are tracking over <%= Todo.count %> Goals</h4>
 
   <br>
