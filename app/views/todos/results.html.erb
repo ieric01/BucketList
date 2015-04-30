@@ -27,14 +27,14 @@
   <% end %>
   <%= result.name %> [ <%= link_to 'Users', "/users_with_this_todo/#{result.id}"  %>
   <%=  Todo.find_by(:name => result.name).users.count %>] <br>
-  <%= link_to 'Events', "/todos/#{result.id}/events/new"  %> | 
+  <%= link_to '<button type="button">Events</button>'.html_safe, "/todos/#{result.id}/events/new"  %> | 
 
 
   <% if current_user.todos.include? Todo.find_by(:name => result.name) %>
-    <%= link_to 'Delete from list', "/delete_from_list/#{result.name}"  %>
+    <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{result.name}"  %>
 
   <% else %>
-    <%= link_to 'Add to list', "/add_to_list/#{result.name}"  %>
+    <%= link_to '<button type="button">Add to list</button>'.html_safe, "/add_to_list/#{result.name}"  %>
   <% end %>
   
   
