@@ -40,6 +40,7 @@ class TodosController < ApplicationController
 
   def delete_todo_from_user
     if !(current_user.todos.include? Todo.find_by(:name => params['todo']))
+      binding.pry
       return redirect_to '/'
     end
 

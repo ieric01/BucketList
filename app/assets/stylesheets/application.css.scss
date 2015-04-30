@@ -217,7 +217,7 @@ body {
 
 
 .user_datatable {
-    margin-left: 10%;
+  margin-left: 10%;
   margin-right: 10%;
 
 }
@@ -249,7 +249,26 @@ color: red;
     box-shadow: 0 0 12px #28C734;
 }
 
+.col-md-4 {
+  margin-top: 50px;
+  margin-left: 200px;
+  // border: solid;
+}
 
+#completed_img_tag {
+  border-top: 100px;
+}
+
+.container {
+  // border: solid;
+}
+
+.header h2{
+  color: black;
+  // border: solid;
+  text-align: center;
+
+}
 #genres {
 margin-bottom: 100px;
 }
