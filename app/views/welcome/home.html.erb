@@ -17,12 +17,12 @@
     $(function(){
         $(".element").typed({
             // Waits 1000ms after typing "First"
-            strings: ["Don't just live your life.^500", "Live your dreams^50000", "Else die alone.^5000"]
+            strings: ["Don't just live your life^500", "Live your dreams^50000", "Else die alone.^5000"]
         });
     });
 </script>
 
-<h1><span class="element"></span><h1>
+<div id="lar"><h1><span class="element"></span><h1></div>
 
 
   <h4><%= User.count %> Members are tracking over <%= Todo.count %> Goals</h4>
