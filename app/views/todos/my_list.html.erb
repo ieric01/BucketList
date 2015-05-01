@@ -71,7 +71,8 @@ $(function () {
       </p>
     <% end %>
   </div>
-</div> <!-- end of container -->
+</div> <!-- end of main container -->
+
 
   <br>
   <hr>
@@ -80,53 +81,56 @@ $(function () {
   <br><br>
 
    <!-- <div class="row"> -->
-   <!-- <div class = "container"> -->
+   <div class = "container">
     <div class="row">
     <% @my_todos.each do |todo| %>
       <% if todo.user_todos.where(:user_id => current_user.id).first.finished == false %>
-        <div class="col-md-3">
         <% if todo.image != nil %>
+      <div class="col-md-3">
+        <div id="img_container_incomplete">
          <a href="/todos/<%= todo.id %>"><div id="completed_image_tag"><img src="<%= todo.image %>"height="135x135" ></div></a>
         <% else %>
           <a href="/todos/<%= todo.id %>"><div id="completed_image_tag"><%= image_tag todo.new_image, size: "135x135" %></div></a>
         <% end %>
         <%= todo.name %><br>
-        <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.name}"  %><br>
-        <%= link_to '<button type="button">Move to Completed</button>'.html_safe, "/complete_todo/#{todo.id}" %>
-    <!--   <%# else %>
-        "nothing happened" -->
-
+        <%= link_to '<button type="button", id="button_delete">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.name}"  %><br>
+        <%= link_to '<button type="button", id ="button_complete">Move to Completed</button>'.html_safe, "/complete_todo/#{todo.id}" %>
+      </div> <!-- end of img_container div -->
       <% end %>
-      <!-- <p>im here</p>
-      <p>hello there!</p>  -->
       </div>   <!-- div end for col -->
     <% end %>
-  <!-- </div> --> <!-- div end for row-->
-<!-- </div>  --><!--div end for container -->
+  </div>  <!-- div end for row-->
+</div> <!--div end for container -->
 
 <div class="row"></div>
 
+<hr>
 <div class="header"><h2>COMPLETED</h2></div>
 <hr>
 <br><br>
 
 <!-- <div class="container"> -->
- <div class="row">
+  <div class="row">
   <% @completed_todo_array.each do |user_todo| %>
     <div class="col-md-3">
       <% if Todo.find(user_todo.todo_id).image %>
+      <div id="img_container_complete">
         <a href="/todos/<%=Todo.find(user_todo.todo_id).id %>"><div id="completed_image_tag"><img src="<%= Todo.find(user_todo.todo_id).image %>" height="135x135"></div></a>
       <% else %>
         <a href="/todos/<%= Todo.find(user_todo.todo_id).id%>"><div id="completed_image_tag"><%=image_tag Todo.find(user_todo.todo_id).new_image, size: "135x135" %></div></a>
       <% end %>
         <%= Todo.find(user_todo.todo_id).name %><br>
-        <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}" %>
+        <%= link_to '<button type="button", id="button_delete">Delete from list</button>'.html_safe, "/delete_from_list/#{Todo.find(user_todo.todo_id).name}" %>
+      </div> <!-- end of img_container div -->
     </div> <!-- div end for col -->
   <% end %>
   </div> <!-- div end for row -->
-</div> <!-- div end for container -->
+<!-- </div> div end for container -->
   <br>
   <br>
   <br>
+
+
+
 
 

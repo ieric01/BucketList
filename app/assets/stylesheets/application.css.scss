@@ -218,20 +218,17 @@ margin-top: 100px;
   border: 1px solid #26bf31;
   border-radius: 18px;
   box-shadow: 3px 3px 20px #888888;
+
 }
 
 #my_list h2 {
   text-align: center;
 }
 
-
 body {
     background-size: 100%;
     background-repeat: no-repeat;
 }
-
-
-
 
 #users_filter{
   margin-left: 265px;
@@ -245,7 +242,6 @@ body {
   margin-right: 10%;
 
 }
-
 
 #show_page {
 margin-left: 20%;
@@ -276,20 +272,10 @@ color: red;
 .col-md-4 {
   margin-top: 50px;
   margin-left: 200px;
-  // border: solid;
-}
-
-#completed_img_tag {
-  border-top: 100px;
-}
-
-.container {
-  // border: solid;
 }
 
 .header h2{
   color: black;
-  // border: solid;
   text-align: center;
 
 }
@@ -300,3 +286,61 @@ margin-bottom: 100px;
 #lar>h1 {
     font-size: 50px;
 }
+
+#img_container_incomplete {
+  margin-bottom: 55px;
+}
+
+#img_container_complete{
+  margin-bottom: 55px;
+  padding-left: 15px;
+}
+
+#button_delete {
+  color:#08233e;
+  font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+  font-size:70%;
+  padding:5px;
+  // background:url(overlay.png) repeat-x center #ffcc00;
+  background-color: white;
+  border:1px solid #ffcc00;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  border-bottom:1px solid #9f9f9f;
+  -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  cursor:pointer;
+}
+
+#button_complete {
+color:#08233e;
+  font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+  font-size:70%;
+  padding:5px;
+  background:url(overlay.png) repeat-x center #ffcc00;
+  background-color: white;
+  border:1px solid #ffcc00;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  border-bottom:1px solid #9f9f9f;
+  -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+  cursor:pointer;
+}
+
+ #button_complete:hover {
+  // background-color:rgba(255,204,0,0.8);
+  background-color: #DCF7D8;
+  // box-shadow: inset 0 0 10px #000000;
+ }
+
+ #button_delete:hover {
+  // background-color:rgba(255,204,0,0.8);
+  background-color: #FECCD4;
+  // box-shadow: inset 0 0 10px #000000;
+ }
+
