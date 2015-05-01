@@ -7,8 +7,9 @@
 <% unless @todo.image  %>
     <a href="/todos/<%= @todo.id %>"><%= image_tag @todo.new_image, size: "250x250" %></a>
   <% else %>
-    <a href="/todos/<%= @todo.id %>"><div id='image_tag'><img src="<%= @todo.image %>" ></div></a><br>
-  <% end %>
+    <a href="/todos/<%= @todo.id %>"><div id='image_tag_todo'><img src="<%= @todo.image %>" ></div></a><br>
+  <% end %><br>
+
 	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: </a>[<%= @todo.events.count %>]<br>
 <% if current_user.todos.include? Todo.find_by(:name => @todo.name) %>
     <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{@todo.name}"  %>
@@ -18,11 +19,12 @@
               <br><br>
   <h4>Users With This Event In Their Bucklist: &nbsp; <a href="/users_with_this_todo/<%= @todo.id %>"><%= @todo.users.count %></a></h4>
 <% unless CouponGiver.distribute_deals(TravelDeals, @todo.name).empty? %>
-              <br><br>
-	<h4>Deals Related to This Event: </h4>
+  <br><br><br>
+
+  <h4>Deals Related to This Event: </h4><br>
 	<% CouponGiver.distribute_deals(TravelDeals, @todo.name).reverse.each do |deal|%>
-    <a href=<%= "#{deal.url}" %>><img src= "<%=deal.img %>", width=90<D-r>></a>
-		<a href=<%= "#{deal.url}" %>><%= deal.title %></a><br>
+          <a href=<%= "#{deal.url}" %>><div id='image_tag_todo'><img src= "<%=deal.img %>", width=90<D-r>></a>
+          <a href=<%= "#{deal.url}" %>><%= deal.title %></div></a><br>
 	<% end %>
 	<% else %>
 		<h4>No Deals Related to This Event</h4><br>
