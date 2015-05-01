@@ -7,7 +7,8 @@
 
 <% @user_todos.each do |todo| %>
 
-  <img src="<%= todo.check_fo_image %>" height="90" width="90"><%= link_to  todo.name, "/users_with_this_todo/#{todo.id}"  %>
+  <a href=<%= "/todos/#{todo.id}" %>><img src="<%= todo.check_fo_image %>" height="90" width="90"></a>
+  <%= link_to  "Comment on #{todo.name}".html_safe, "/users_with_this_todo/#{todo.id}"  %>
 
 <br><br><br>
 <% end %>
