@@ -34,7 +34,7 @@ class CouponParser
 
   	def mass_insert_query(table, deals_array)
         deals_array.each do |deal|
-          binding.pry
+          # binding.pry
         end
        
     end
