@@ -177,12 +177,29 @@ margin-left: 40px;
 border: 1px solid #888888;
 border-radius: 18px;
 box-shadow: 3px 3px 20px #888888;
+float: left;
+overflow: visible;
 }
 
 #image_tag_nav img{
 border-radius: 4px;
 border: 1px solid #888888;
 box-shadow: 3px 3px 20px #888888;
+float: left;
+overflow: hidden;
+}
+
+#left_margin {
+  margin-top: 60px;
+margin-left: 60px;
+}
+
+#left_margin img {
+margin-right: 20px;
+}
+
+#table_row td {
+width: 50px;
 }
 
 #completed_list_image {
