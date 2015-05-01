@@ -13,25 +13,30 @@
   <tbody>
 
 <% @all_users.each do |user| %>
-  
-  <tr>
-  <td>
-  <% if !user.user_img_url.include? "https://secure.gravatar.com/avatar" %>
-    <img src=<%= user.user_img_url %> width="48">
-  <%else%>
-     <img src=<%="http://www.etceter.com/assets/43b442c6/no_avatar_available.jpg"
-     %> width="48">
-  <% end %>
-  </td>
 
-  <td><%= (link_to  user.name.titleize, "/see_user_list/#{user.id}") if user.name  %></td>
+  <tr>
+  <td style="width:200px">
+  <% if !user.user_img_url.include? "https://secure.gravatar.com/avatar" %>
+    <div id='image_tag_nav'>  <img src=<%= user.user_img_url %> width="48"></div>
+  <%else%>
+      <div id='image_tag_nav'> <img src=<%="http://www.etceter.com/assets/43b442c6/no_avatar_available.jpg"
+        %> width="48"></div>
+  <% end %>
+</td>
+
+
+<div id='table_row'>
+  <td style="width:200px"><%= (link_to  user.name.titleize, "/see_user_list/#{user.id}") if user.name  %></td><div>
+
+
+
       <td>
-      
+
        <% user.todos.each_with_index do |todo, i| %>
          <% break if i == 9 %>
-        
-            <a href="/todos/<%= todo.id %>"><img src="<%= todo.check_fo_image %>" height="40" width="45"></a>
-            
+
+         <a href="/todos/<%= todo.id %>"><div id='image_tag_nav'> <img src="<%= todo.check_fo_image %>" height="40" width="45"></div></a>
+
         <% end %>
 
        <% if user.todos.length > 9 %>

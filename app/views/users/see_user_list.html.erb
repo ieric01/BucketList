@@ -1,16 +1,17 @@
+<div id='left_margin'>
 <br><br><br>
-<img src="<%= User.find(params["name"]).user_img_url %>">
+<div id='image_tag_nav'><img src="<%= User.find(params["name"]).user_img_url %>"height="90" width="90"></div>
 <h3><%= "#{User.find(params["name"]).name.titleize}'s Bucketlist:"%></h3>
 <br>
 
 <%= 'List is empty.' if @user_todos.empty?  %>
-
+<br><br><br>
 <% @user_todos.each do |todo| %>
 
-  <a href=<%= "/todos/#{todo.id}" %>><img src="<%= todo.check_fo_image %>" height="90" width="90"></a>
+  <a href=<%= "/todos/#{todo.id}" %>><div id='image_tag_nav'><img src="<%= todo.check_fo_image %>" height="90" width="90"></div></a><br><br><br>
   <%= link_to  "Comment on #{todo.name}".html_safe, "/users_with_this_todo/#{todo.id}"  %>
 
 <br><br><br>
 <% end %>
 <br><br>
-
+</div>
