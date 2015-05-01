@@ -20,9 +20,10 @@
 <% if @users_with_todo.empty? %>
 	<%= "No Users With this Bucketlist Item" %>
 <% else %>
-	<h4>Users With This in Their Bucklist:</h4>
+	<h4>Users With This in Their Bucklist:</h4><br>
 	<% @users_with_todo.each do |user| %>
-	  <img src="<%= user.user_img_url %>" height="45" width="60"> <%= link_to  user.name, "/see_user_list/#{user.id}"  %><br><br>
+	  <a href=<%= "/see_user_list/#{user.id}" %>><img src="<%= user.user_img_url %>" height="45" width="60"></a>
+	  <%= link_to  user.name, "/see_user_list/#{user.id}"  %><br><br>
 	<% end %>
 <% end %>
 <br><br><br>
