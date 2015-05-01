@@ -12,9 +12,9 @@
 
 	<a href="/todos/<%= @todo.id %>/events">Meetings for this Event: </a>[<%= @todo.events.count %>]<br>
 <% if current_user.todos.include? Todo.find_by(:name => @todo.name) %>
-    <%= link_to '<button type="button">Delete from list</button>'.html_safe, "/delete_from_list/#{@todo.name}"  %>
+    <%= link_to '<button type="button", id="button_delete">Delete from list</button>'.html_safe, "/delete_from_list/#{@todo.name}"  %>
 <% else %>
-    <%= link_to '<button type="button">Add to list</button>'.html_safe, "/add_to_list/#{@todo.name}"  %>
+    <%= link_to '<button type="button", id="button_complete">Add to list</button>'.html_safe, "/add_to_list/#{@todo.name}"  %>
 <% end %>
               <br><br>
   <h4>Users With This Event In Their Bucklist: &nbsp; <a href="/users_with_this_todo/<%= @todo.id %>"><%= @todo.users.count %></a></h4>

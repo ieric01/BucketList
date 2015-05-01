@@ -88,9 +88,9 @@ $(function () {
         <% if todo.image != nil %>
       <div class="col-md-3">
         <div id="img_container_incomplete">
-         <a href="/todos/<%= todo.id %>"><div id="completed_image_tag"><img src="<%= todo.image %>"height="135x135" ></div></a>
+         <a href="/todos/<%= todo.id %>"><div id="incomplete_image_tag"><img src="<%= todo.image %>"height="135x135" ></div></a>
         <% else %>
-          <a href="/todos/<%= todo.id %>"><div id="completed_image_tag"><%= image_tag todo.new_image, size: "135x135" %></div></a>
+          <a href="/todos/<%= todo.id %>"><div id="incomplete_image_tag"><%= image_tag todo.new_image, size: "135x135" %></div></a>
         <% end %>
         <%= todo.name %><br>
         <%= link_to '<button type="button", id="button_delete">Delete from list</button>'.html_safe, "/delete_from_list/#{todo.name}"  %><br>
