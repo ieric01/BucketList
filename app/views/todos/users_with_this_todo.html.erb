@@ -1,17 +1,17 @@
+
+<div id='left_margin'>
 <br>
-<br>
-<br>
-<br>
+
 
 	<h1><a href="<%= "/todos/#{@todo.id}" %>"><%= @todo.name %></a></h1>
 	<br><br>
 <% @comments.each do |comment| %>
-  <%= comment.content %> by 
-   <img src="<%= User.find(comment.user_id).user_img_url %>" height="30" width="45"><%= link_to User.find(comment.user_id).name, "/see_user_list/#{User.find(comment.user_id).id}"  %>
+  <%= comment.content %> by
+  <div id='image_tag_nav'><img src="<%= User.find(comment.user_id).user_img_url %>" height="30" width="45"></div><%= link_to User.find(comment.user_id).name, "/see_user_list/#{User.find(comment.user_id).id}"  %>
 
-  <%=time_ago_in_words(Time.at(comment.created_at))%> ago 
-                 
-  
+  <%=time_ago_in_words(Time.at(comment.created_at))%> ago
+
+
   <br>
 <% end %>
 <% unless current_user.name == "guest" %>
@@ -20,10 +20,12 @@
 <% if @users_with_todo.empty? %>
 	<%= "No Users With this Bucketlist Item" %>
 <% else %>
-	<h4>Users With This in Their Bucklist:</h4><br>
+  <h2>Users With This in Their Bucklist:</h2><br><br><br>
 	<% @users_with_todo.each do |user| %>
-	  <a href=<%= "/see_user_list/#{user.id}" %>><img src="<%= user.user_img_url %>" height="45" width="60"></a>
-	  <%= link_to  user.name, "/see_user_list/#{user.id}"  %><br><br>
+          <a href=<%= "/see_user_list/#{user.id}" %>> <div id='image_tag_nav'><img src="<%= user.user_img_url %>" width="74"></div></a><br>
+	  <%= link_to  user.name, "/see_user_list/#{user.id}"  %><br><br><br><br>
 	<% end %>
 <% end %>
 <br><br><br>
+
+</div>
